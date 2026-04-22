@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -110,7 +110,6 @@
             font-size: 1.2rem;
         }
 
-        /* Le tout petit bouton de secours */
         .tiny-btn {
             display: none;
             font-size: 0.6rem;
@@ -223,7 +222,14 @@
 
             <div class="quiz-box">
                 <h3>Ta boisson de vie ? 🧃</h3>
-                <button class="btn" onclick="showCapriSunResult()">Voir la réponse</button>
+                <button class="btn btn-small" onclick="checkBoisson('caprisun')">Capri-Sun</button>
+                <button class="btn btn-small" onclick="checkBoisson('coca')">Coca-Cola</button>
+                <button class="btn btn-small" onclick="checkBoisson('icetea')">Ice Tea</button>
+                <button class="btn btn-small" onclick="checkBoisson('fanta')">Fanta</button>
+                <button class="btn btn-small" onclick="checkBoisson('redbull')">Red Bull</button>
+                <button class="btn btn-small" onclick="checkBoisson('tomate')">Jus de tomate</button>
+                <button class="btn btn-small" onclick="checkBoisson('selecto')">Selecto</button>
+                <button class="btn btn-small" onclick="checkBoisson('eau')">De l'eau</button>
                 <p class="quiz-result" id="capri-res-fr"></p>
             </div>
 
@@ -262,7 +268,14 @@
 
             <div class="quiz-box">
                 <h3>مشروبك؟ 🧃</h3>
-                <button class="btn" onclick="showCapriSunResult()">رؤية الجواب</button>
+                <button class="btn btn-small" onclick="checkBoisson('caprisun')">كابري سن</button>
+                <button class="btn btn-small" onclick="checkBoisson('coca')">كوكا كولا</button>
+                <button class="btn btn-small" onclick="checkBoisson('icetea')">آيس تي</button>
+                <button class="btn btn-small" onclick="checkBoisson('fanta')">فانتا</button>
+                <button class="btn btn-small" onclick="checkBoisson('redbull')">ريد بول</button>
+                <button class="btn btn-small" onclick="checkBoisson('tomate')">عصير طماطم</button>
+                <button class="btn btn-small" onclick="checkBoisson('selecto')">سيلكتو</button>
+                <button class="btn btn-small" onclick="checkBoisson('eau')">الماء</button>
                 <p class="quiz-result" id="capri-res-ar"></p>
             </div>
 
@@ -277,8 +290,8 @@
 
     <div id="sad-mode">
         <h1 id="sad-text"></h1>
-        <img src="https://media1.tenor.com/m/J7r5uN2nEbwAAAAd/neymar-crying.gif" alt="Neymar pleure">
-        </div>
+        <img src="https://media.tenor.com/J7r5uN2nEbwAAAAC/neymar-crying.gif" alt="Neymar pleure" onerror="this.src='https://media1.giphy.com/media/3o6vXWg8OEq7aE21uE/giphy.gif'">
+    </div>
 
     <div class="secret-translator" id="translator" onclick="toggleLanguage()" title="Chut, c'est un secret">✨</div>
 
@@ -289,7 +302,6 @@
 
         // Logique de l'épreuve des 10 clics
         function handleMainClick(btn, lang) {
-            // Si c'est devenu un piège et qu'elle clique : C'EST LA FIN
             if (btn.dataset.isTrap === "true") {
                 activateSadMode(lang);
                 return;
@@ -297,7 +309,6 @@
 
             clickCount++;
             
-            // Au 6ème clic (le prochain sera le 7ème), on transforme les boutons !
             if (clickCount === 6) {
                 const mainFr = document.getElementById('main-btn-fr');
                 const mainAr = document.getElementById('main-btn-ar');
@@ -311,13 +322,11 @@
                 mainFr.dataset.isTrap = "true";
                 mainAr.dataset.isTrap = "true";
 
-                // Fait apparaitre le tout petit bouton de survie
                 document.getElementById('tiny-btn-fr').style.display = 'inline-block';
                 document.getElementById('tiny-btn-ar').style.display = 'inline-block';
             }
         }
 
-        // Si elle trouve le petit bouton et continue de cliquer
         function handleTinyClick(lang) {
             clickCount++;
             if (clickCount >= 10) {
@@ -327,7 +336,6 @@
                     alert("برافو حياتي! أنتِ حقاً تحبينني، لقد تجاوزتي الفخ! 💍❤️");
                 }
                 
-                // On cache les boutons de l'épreuve après la victoire
                 document.getElementById('main-btn-fr').style.display = 'none';
                 document.getElementById('main-btn-ar').style.display = 'none';
                 document.getElementById('tiny-btn-fr').style.display = 'none';
@@ -373,31 +381,46 @@
 
             switch(answer) {
                 case 'titi':
-                    textFr = "bravoo l'amour de ma vie ❤️🐥";
-                    textAr = "برافو يا حب حياتي ❤️🐥"; break;
+                    textFr = "bravoo l'amour de ma vie ❤️🐥"; textAr = "برافو يا حب حياتي ❤️🐥"; break;
                 case 'merwan':
-                    textFr = "bahahaha mskn merwan 😂";
-                    textAr = "هاهاهاها مسكين مروان 😂"; break;
+                    textFr = "bahahaha mskn merwan 😂"; textAr = "هاهاهاها مسكين مروان 😂"; break;
                 case 'hamouda':
-                    textFr = "c toi mon doudou pas l'inverse kharaya 😒";
-                    textAr = "أنتِ الدودو نتاعي ماشي العكس يا الخراية 😒"; break;
+                    textFr = "c toi mon doudou pas l'inverse kharaya 😒"; textAr = "أنتِ الدودو نتاعي ماشي العكس يا الخراية 😒"; break;
                 case 'hellokitty':
-                    textFr = "nan tes bon mashAllah 😍";
-                    textAr = "لا، أنتِ بون ما شاء الله 😍"; break;
+                    textFr = "nan tes bon mashAllah 😍"; textAr = "لا، أنتِ بون ما شاء الله 😍"; break;
                 case 'winnie':
-                    textFr = "t sah la? 🤨";
-                    textAr = "راكِ صح؟ 🤨"; break;
+                    textFr = "t sah la? 🤨"; textAr = "راكِ صح؟ 🤨"; break;
                 case 'stitch':
-                    textFr = "c moi j'aime stitch pk tu vole? 👽";
-                    textAr = "أنا اللي نحب ستيتش، علاش تسرقي؟ 👽"; break;
+                    textFr = "c moi j'aime stitch pk tu vole? 👽"; textAr = "أنا اللي نحب ستيتش، علاش تسرقي؟ 👽"; break;
             }
             resFr.innerText = textFr; resAr.innerText = textAr;
         }
 
-        // Le quiz pour le Capri Sun
-        function showCapriSunResult() {
-            document.getElementById('capri-res-fr').innerText = "Capri Sun ! Tu bois ça comme une enfant de 5 ans mais c'est pour ça que je t'aime 🍹❤️";
-            document.getElementById('capri-res-ar').innerText = "كابري سن! تشربينه كأن عمرك 5 سنوات ولكنني أعشقك 🍹❤️";
+        // Le quiz pour les boissons
+        function checkBoisson(answer) {
+            const resFr = document.getElementById('capri-res-fr');
+            const resAr = document.getElementById('capri-res-ar');
+            let textFr = ""; let textAr = "";
+
+            switch(answer) {
+                case 'caprisun':
+                    textFr = "bravoooo lfm de ma vie 🍹❤️"; textAr = "برافو يا مرأة حياتي 🍹❤️"; break;
+                case 'coca':
+                    textFr = "tes serieuse? 🤨"; textAr = "من نيتك؟ 🤨"; break;
+                case 'icetea':
+                    textFr = "ok leinah 🙄"; textAr = "أوكي لينة 🙄"; break;
+                case 'fanta':
+                    textFr = "jamais tu bois sa 🤥"; textAr = "عمرك ما تشربيها 🤥"; break;
+                case 'redbull':
+                    textFr = "bah wsh 🤯"; textAr = "واش بيك؟ 🤯"; break;
+                case 'tomate':
+                    textFr = "c'est degeulasse 🤢"; textAr = "يععع مقرف 🤢"; break;
+                case 'selecto':
+                    textFr = "T'es une vraie DZ mais non essaye encore 🍏"; textAr = "أنتِ جزائرية حرة بصح لا، زيدي خمي 🍏"; break;
+                case 'eau':
+                    textFr = "Mdrrr depuis quand tu bois de l'eau toi tu mens 😂"; textAr = "ههههه من وكتاش تشربي الماء أنتِ تكذبي 😂"; break;
+            }
+            resFr.innerText = textFr; resAr.innerText = textAr;
         }
 
         // Traduction magique avec l'étoile
