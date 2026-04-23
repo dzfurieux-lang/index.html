@@ -541,7 +541,4 @@
         heartInterval = setInterval(spawnHeart, 800);
     </script>
 </body>
-</html>wnHeart, 800);
-    </script>
-</body>
 </html>
