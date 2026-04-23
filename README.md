@@ -14,6 +14,7 @@
             --gold: #D4AF37;
             --bg-dark: #1a0b12;
             --pink-dark: #ff4d6d;
+            --dz-green: #006633;
         }
 
         body {
@@ -246,7 +247,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: transparent;
             border: 3px solid white;
         }
@@ -575,6 +576,55 @@
             font-size: 10px;
             pointer-events: none;
         }
+        
+        .hold-btn {
+            padding: 30px;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 5px solid white;
+            box-shadow: 0 0 20px var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        .detect-bar {
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .detect-fill {
+            height: 100%;
+            background: var(--dz-green);
+            width: 0%;
+            transition: width 0.1s;
+        }
+        
+        .intruder-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 20px;
+            background: rgba(255,255,255,0.5);
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid var(--primary);
+        }
+
+        .intruder-item {
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .intruder-item:hover {
+            transform: scale(1.3);
+        }
     </style>
 </head>
 <body dir="ltr" id="body">
@@ -635,20 +685,20 @@
 
         <div class="glass-card locked-section" id="etape2">
             <div class="lang-fr">
-                <h2>Étape 2 : Le Boss 🧸</h2>
+                <h2>Étape 2 : Le Doudou 🧸</h2>
                 <div class="quiz-box">
-                    <h3>Qui domine la chambre ?</h3>
+                    <h3>C'est qui le doudou numéro 1 ?</h3>
                     <button class="btn btn-small" onclick="checkDoudou('merwan')">Merwan</button>
-                    <button class="btn btn-small" onclick="checkDoudou('titi')">Titi le boss</button>
+                    <button class="btn btn-small" onclick="checkDoudou('titi')">Titi</button>
                     <p class="quiz-result" id="doudou-res-fr"></p>
                 </div>
             </div>
             <div class="lang-ar">
-                <h2>المرحلة 2: الزعيم 🧸</h2>
+                <h2>المرحلة 2: الدودو 🧸</h2>
                 <div class="quiz-box">
-                    <h3>من يسيطر على الغرفة؟</h3>
+                    <h3>من هو الدودو الأول؟</h3>
                     <button class="btn btn-small" onclick="checkDoudou('merwan')">مروان</button>
-                    <button class="btn btn-small" onclick="checkDoudou('titi')">تيتي الزعيم</button>
+                    <button class="btn btn-small" onclick="checkDoudou('titi')">تيتي</button>
                     <p class="quiz-result" id="doudou-res-ar"></p>
                 </div>
             </div>
@@ -881,8 +931,8 @@
             <div class="lang-fr">
                 <h2>Étape 14 : Le Juste Prix (La Dot) 💰</h2>
                 <p>Combien vaux-tu ? Choisis bien ta dot.</p>
-                <button class="btn btn-small" onclick="alert('Mdrrr tu vaux bien plus que ça radine !')">100 €</button>
-                <button class="btn btn-small" onclick="alert('Toujours pas, tu te sous-estimes ma reine !')">10 000 €</button>
+                <button class="btn btn-small" onclick="alert('Mdrrr tu vaux bien plus que ça la ji3ena !')">100 €</button>
+                <button class="btn btn-small" onclick="alert('Toujours pas, tu te sous-estimes lfm de mvi !')">10 000 €</button>
                 <button class="btn" id="mahr-btn-rich-fr" onmouseover="fleeMahrBtn('fr')" ontouchstart="fleeMahrBtn('fr')">1 MILLIARD 💎</button>
                 <br>
                 <button class="btn tiny-btn" id="hidden-mahr-fr" style="display:none;" onclick="winMahr('fr')">J'ai pas de prix ❤️</button>
@@ -890,8 +940,8 @@
             <div class="lang-ar">
                 <h2>المرحلة 14: المهر 💰</h2>
                 <p>كم تساوين؟ اختاري مهرك.</p>
-                <button class="btn btn-small" onclick="alert('ههه أنتِ تساوين أكثر بكثير!')">100 €</button>
-                <button class="btn btn-small" onclick="alert('لا، أنتِ تستهينين بنفسك يا ملكة!')">10 000 €</button>
+                <button class="btn btn-small" onclick="alert('ههه أنتِ تساوين أكثر بكثير يا جيعانة!')">100 €</button>
+                <button class="btn btn-small" onclick="alert('لا، أنتِ تستهينين بنفسك يا مرأة حياتي!')">10 000 €</button>
                 <button class="btn" id="mahr-btn-rich-ar" onmouseover="fleeMahrBtn('ar')" ontouchstart="fleeMahrBtn('ar')">مليار 💎</button>
                 <br>
                 <button class="btn tiny-btn" id="hidden-mahr-ar" style="display:none;" onclick="winMahr('ar')">ليس لي ثمن ❤️</button>
@@ -1006,14 +1056,14 @@
         <div class="glass-card locked-section wedding-section" id="etape21">
             <div class="lang-fr">
                 <h1 style="font-size: 3.5rem; text-transform: uppercase;">InshAllah 💍👑</h1>
-                <p style="font-size: 1.3rem; font-weight: bold;">Félicitations ma Hayat, tu as fini ce cauchemar !</p>
+                <p style="font-size: 1.3rem; font-weight: bold;">Félicitations ma femme, tu as fini ce cauchemar !</p>
                 <p>Tu as prouvé que t'es une vraie guerrière. On fera le plus beau des mariages, Karakou, Caftan, des montagnes de chips poulet et de sushis.</p>
                 <p>Mais avant ça...</p>
                 <button class="btn" style="margin-top: 30px; background: var(--gold); color: black; padding: 20px 40px; font-size: 1.5rem;" onclick="unlockStory()">Lis ça s'il te plaît 📖</button>
             </div>
             <div class="lang-ar">
                 <h1 style="font-size: 3.5rem;">إن شاء الله 💍👑</h1>
-                <p style="font-size: 1.3rem; font-weight: bold;">مبروك حياتي، لقد أنهيتِ هذا الكابوس!</p>
+                <p style="font-size: 1.3rem; font-weight: bold;">مبروك زوجتي، لقد أنهيتِ هذا الكابوس!</p>
                 <p>أنتِ محاربة. سنقيم أجمل عرس، بالقفطان والكاراكو، وجبال من شيبس الدجاج والسوشي.</p>
                 <p>ولكن قبل ذلك...</p>
                 <button class="btn" style="margin-top: 30px; background: var(--gold); color: black; padding: 20px 40px; font-size: 1.5rem;" onclick="unlockStory()">اقرئي هذا من فضلك 📖</button>
@@ -1106,7 +1156,7 @@
         /* ======================================================== */
         function checkDoudou(a) { 
             if(a === 'titi') { 
-                document.getElementById('doudou-res-fr').innerText = "Normal c'est le boss ❤️"; 
+                document.getElementById('doudou-res-fr').innerText = "Normal c'est lui le sang ❤️"; 
                 document.getElementById('doudou-res-ar').innerText = "برافو ❤️"; 
                 unlockSection('etape3'); 
             } else { 
@@ -1396,7 +1446,7 @@
             document.getElementById('hidden-mahr-ar').style.display = "inline-block";
         }
         function winMahr(lang) {
-            alert(lang === 'fr' ? "Exactement. Tu n'as pas de prix. ❤️" : "بالضبط. ليس لك ثمن. ❤️");
+            alert(lang === 'fr' ? "Exactement. Tu n'as pas de prix lfm de mvi. ❤️" : "بالضبط. ليس لك ثمن. ❤️");
             unlockSection('etape15');
         }
 
