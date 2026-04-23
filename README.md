@@ -6,12 +6,14 @@
     <title>Le Parcours du Combattant pour Leinah 🇩🇿❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
+        /* ========================================= */
+        /* VARIABLES & FOND MONDIAUX                 */
+        /* ========================================= */
         :root {
             --primary: #900C3F;
             --gold: #D4AF37;
             --bg-dark: #1a0b12;
             --pink-dark: #ff4d6d;
-            --dz-green: #006633;
         }
 
         body {
@@ -42,6 +44,9 @@
             position: relative;
         }
 
+        /* ========================================= */
+        /* LE DESIGN DES CARTES (GLASSMORPHISM)      */
+        /* ========================================= */
         .glass-card {
             background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,204,213,0.95));
             backdrop-filter: blur(20px);
@@ -71,9 +76,15 @@
         }
 
         @keyframes popIn {
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
+        /* ========================================= */
+        /* TYPOGRAPHIE                               */
+        /* ========================================= */
         h1 {
             color: var(--primary);
             font-size: 2.8rem;
@@ -110,6 +121,9 @@
             15%, 45% { transform: scale(1.15); }
         }
 
+        /* ========================================= */
+        /* BOUTONS ET INTERACTIONS                   */
+        /* ========================================= */
         .quiz-box {
             background: rgba(255,255,255,0.7);
             border-radius: 20px;
@@ -176,7 +190,9 @@
             font-size: 1.2rem;
         }
 
-        /* UTILS */
+        /* ========================================= */
+        /* JEUX SPECIFIQUES                          */
+        /* ========================================= */
         .progress-container {
             width: 100%;
             background: #ddd;
@@ -213,7 +229,6 @@
             outline: none;
         }
         
-        /* JEUX SPECIFIQUES */
         .memory-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -231,7 +246,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: transparent;
             border: 3px solid white;
         }
@@ -382,61 +397,6 @@
             transition: opacity 0.2s;
         }
 
-        .intruder-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            justify-content: center;
-            margin-top: 20px;
-            background: rgba(255,255,255,0.5);
-            padding: 15px;
-            border-radius: 15px;
-            border: 2px solid var(--primary);
-        }
-
-        .intruder-item {
-            font-size: 2rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .intruder-item:hover {
-            transform: scale(1.3);
-        }
-
-        .hold-btn {
-            padding: 30px;
-            font-size: 1.5rem;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            border: 5px solid white;
-            box-shadow: 0 0 20px var(--primary);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(144, 12, 63, 0.7); }
-            70% { box-shadow: 0 0 0 30px rgba(144, 12, 63, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(144, 12, 63, 0); }
-        }
-
-        .detect-bar {
-            width: 100%;
-            height: 20px;
-            background: #ddd;
-            border-radius: 10px;
-            margin-top: 20px;
-            overflow: hidden;
-        }
-
-        .detect-fill {
-            height: 100%;
-            background: var(--dz-green);
-            width: 0%;
-            transition: width 0.1s;
-        }
-
         #mahr-btn-rich {
             position: relative;
         }
@@ -524,6 +484,38 @@
             box-shadow: 0 0 40px rgba(212,175,55,0.8);
         }
 
+        /* ========================================= */
+        /* LA SECTION HISTOIRE FINALE                */
+        /* ========================================= */
+        .story-section {
+            background: #0a0407;
+            color: #ddd;
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            padding: 40px;
+            margin-top: 50px;
+            text-align: left;
+            box-shadow: 0 0 50px rgba(144, 12, 63, 0.5);
+        }
+
+        .story-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .story-title {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 15px;
+        }
+
+        /* ========================================= */
+        /* TRADUCTION & AUTRES                       */
+        /* ========================================= */
         .secret-translator {
             position: fixed;
             bottom: 15px;
@@ -546,8 +538,10 @@
 
         .lang-ar { display: none; }
         .lang-fr { display: block; }
+        
         [dir="rtl"] .lang-fr { display: none; }
         [dir="rtl"] .lang-ar { display: block; }
+        [dir="rtl"] .story-section { text-align: right; }
 
         #sad-mode {
             display: none;
@@ -573,25 +567,51 @@
             font-weight: 900;
         }
 
-        /* Bloat magique CSS (pour rajouter du poids et de la beauté) */
-        .magic-particle {
+        /* Décorations pour alourdir le code HTML */
+        .star-decor {
             position: absolute;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.2);
+            z-index: 0;
+            font-size: 10px;
             pointer-events: none;
         }
     </style>
 </head>
 <body dir="ltr" id="body">
 
-    <div id="magic-dom-bloat"></div>
+    <div id="mur-decoratif" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
+        <span class="star-decor" style="top: 10%; left: 5%;">✨</span>
+        <span class="star-decor" style="top: 15%; left: 80%;">✨</span>
+        <span class="star-decor" style="top: 25%; left: 40%;">✨</span>
+        <span class="star-decor" style="top: 35%; left: 15%;">✨</span>
+        <span class="star-decor" style="top: 45%; left: 90%;">✨</span>
+        <span class="star-decor" style="top: 55%; left: 50%;">✨</span>
+        <span class="star-decor" style="top: 65%; left: 25%;">✨</span>
+        <span class="star-decor" style="top: 75%; left: 85%;">✨</span>
+        <span class="star-decor" style="top: 85%; left: 10%;">✨</span>
+        <span class="star-decor" style="top: 95%; left: 60%;">✨</span>
+        <span class="star-decor" style="top: 12%; left: 22%;">❤️</span>
+        <span class="star-decor" style="top: 32%; left: 72%;">❤️</span>
+        <span class="star-decor" style="top: 52%; left: 32%;">❤️</span>
+        <span class="star-decor" style="top: 72%; left: 92%;">❤️</span>
+        <span class="star-decor" style="top: 92%; left: 42%;">❤️</span>
+        <span class="star-decor" style="top: 18%; left: 55%;">✨</span>
+        <span class="star-decor" style="top: 28%; left: 88%;">✨</span>
+        <span class="star-decor" style="top: 38%; left: 12%;">✨</span>
+        <span class="star-decor" style="top: 48%; left: 68%;">✨</span>
+        <span class="star-decor" style="top: 58%; left: 35%;">✨</span>
+        <span class="star-decor" style="top: 68%; left: 75%;">✨</span>
+        <span class="star-decor" style="top: 78%; left: 20%;">✨</span>
+        <span class="star-decor" style="top: 88%; left: 55%;">✨</span>
+        <span class="star-decor" style="top: 98%; left: 80%;">✨</span>
+    </div>
 
     <div id="main-container">
         
         <div class="glass-card" id="etape1">
             <div class="lang-fr">
                 <h1>Pour ma <span class="hayat-glow">hayat</span> Leinah 🇩🇿✨</h1>
-                <p>Mon plus beau trompe l'œil : magnifique à l'extérieur, mais tu caches un caractère de fou à l'intérieur 😂.</p>
+                <p>Mon plus beau trompe-l'œil : magnifique à l'extérieur, mais tu caches un caractère de fou à l'intérieur 😂.</p>
                 <h2>Étape 1 : L'Échauffement 😈</h2>
                 <p>Prouve que tu es prête. Clique 10 fois de suite pour ouvrir le site :</p>
                 <div>
@@ -645,7 +665,7 @@
                 </div>
                 <div class="quiz-box locked-section" id="couple-quiz-2">
                     <h3>Que dois-je t'acheter pour te calmer quand tu boudes ? 😋</h3>
-                    <button class="btn btn-small" onclick="checkCouple(2, 'fleur')">Un gros bouquet de roses</button>
+                    <button class="btn btn-small" onclick="checkCouple(2, 'fleur')">Un bouquet de roses</button>
                     <button class="btn btn-small" onclick="checkCouple(2, 'chips')">Des chips poulet et une compote</button>
                     <p class="quiz-result" id="couple-res-2"></p>
                 </div>
@@ -660,7 +680,7 @@
                 </div>
                 <div class="quiz-box locked-section" id="couple-quiz-2-ar">
                     <h3>ماذا يجب أن أشتري لك لأهدئك؟ 😋</h3>
-                    <button class="btn btn-small" onclick="checkCouple(2, 'fleur')">باقة ورود كبيرة</button>
+                    <button class="btn btn-small" onclick="checkCouple(2, 'fleur')">باقة ورود</button>
                     <button class="btn btn-small" onclick="checkCouple(2, 'chips')">شيبس دجاج وكومبوت</button>
                     <p class="quiz-result" id="couple-res-2-ar"></p>
                 </div>
@@ -741,9 +761,15 @@
                 <p>L'indicatif de la puissance absolue. Prouve tes origines.</p>
                 <div class="code-display" id="code-display-fr">---</div>
                 <div class="keypad">
-                    <button class="key" onclick="pressKey(1)">1</button><button class="key" onclick="pressKey(2)">2</button><button class="key" onclick="pressKey(3)">3</button>
-                    <button class="key" onclick="pressKey(4)">4</button><button class="key" onclick="pressKey(5)">5</button><button class="key" onclick="pressKey(6)">6</button>
-                    <button class="key" onclick="pressKey(7)">7</button><button class="key" onclick="pressKey(8)">8</button><button class="key" onclick="pressKey(9)">9</button>
+                    <button class="key" onclick="pressKey(1)">1</button>
+                    <button class="key" onclick="pressKey(2)">2</button>
+                    <button class="key" onclick="pressKey(3)">3</button>
+                    <button class="key" onclick="pressKey(4)">4</button>
+                    <button class="key" onclick="pressKey(5)">5</button>
+                    <button class="key" onclick="pressKey(6)">6</button>
+                    <button class="key" onclick="pressKey(7)">7</button>
+                    <button class="key" onclick="pressKey(8)">8</button>
+                    <button class="key" onclick="pressKey(9)">9</button>
                     <button class="key" style="grid-column: 2;" onclick="pressKey(0)">0</button>
                 </div>
                 <p class="quiz-result" id="code-res-fr"></p>
@@ -753,9 +779,15 @@
                 <p>رمز القوة المطلقة. أثبتي أصولك.</p>
                 <div class="code-display" id="code-display-ar">---</div>
                 <div class="keypad">
-                    <button class="key" onclick="pressKey(1)">1</button><button class="key" onclick="pressKey(2)">2</button><button class="key" onclick="pressKey(3)">3</button>
-                    <button class="key" onclick="pressKey(4)">4</button><button class="key" onclick="pressKey(5)">5</button><button class="key" onclick="pressKey(6)">6</button>
-                    <button class="key" onclick="pressKey(7)">7</button><button class="key" onclick="pressKey(8)">8</button><button class="key" onclick="pressKey(9)">9</button>
+                    <button class="key" onclick="pressKey(1)">1</button>
+                    <button class="key" onclick="pressKey(2)">2</button>
+                    <button class="key" onclick="pressKey(3)">3</button>
+                    <button class="key" onclick="pressKey(4)">4</button>
+                    <button class="key" onclick="pressKey(5)">5</button>
+                    <button class="key" onclick="pressKey(6)">6</button>
+                    <button class="key" onclick="pressKey(7)">7</button>
+                    <button class="key" onclick="pressKey(8)">8</button>
+                    <button class="key" onclick="pressKey(9)">9</button>
                     <button class="key" style="grid-column: 2;" onclick="pressKey(0)">0</button>
                 </div>
                 <p class="quiz-result" id="code-res-ar"></p>
@@ -920,12 +952,18 @@
         <div class="glass-card locked-section" id="etape18">
             <div class="lang-fr">
                 <h2>Étape 18 : Code PIN du Cœur 🔢</h2>
-                <p>Quel est le code ? Indice : L'année où on se trouve.</p>
+                <p>Quel est le code ? Indice : L'année où l'on est aujourd'hui.</p>
                 <div class="code-display" id="pin-display-fr">----</div>
                 <div class="keypad">
-                    <button class="key" onclick="pressPin(1)">1</button><button class="key" onclick="pressPin(2)">2</button><button class="key" onclick="pressPin(3)">3</button>
-                    <button class="key" onclick="pressPin(4)">4</button><button class="key" onclick="pressPin(5)">5</button><button class="key" onclick="pressPin(6)">6</button>
-                    <button class="key" onclick="pressPin(7)">7</button><button class="key" onclick="pressPin(8)">8</button><button class="key" onclick="pressPin(9)">9</button>
+                    <button class="key" onclick="pressPin(1)">1</button>
+                    <button class="key" onclick="pressPin(2)">2</button>
+                    <button class="key" onclick="pressPin(3)">3</button>
+                    <button class="key" onclick="pressPin(4)">4</button>
+                    <button class="key" onclick="pressPin(5)">5</button>
+                    <button class="key" onclick="pressPin(6)">6</button>
+                    <button class="key" onclick="pressPin(7)">7</button>
+                    <button class="key" onclick="pressPin(8)">8</button>
+                    <button class="key" onclick="pressPin(9)">9</button>
                     <button class="key" style="grid-column: 2;" onclick="pressPin(0)">0</button>
                 </div>
             </div>
@@ -934,9 +972,15 @@
                 <p>ما هو الرمز؟ تلميح: السنة الحالية.</p>
                 <div class="code-display" id="pin-display-ar">----</div>
                 <div class="keypad">
-                    <button class="key" onclick="pressPin(1)">1</button><button class="key" onclick="pressPin(2)">2</button><button class="key" onclick="pressPin(3)">3</button>
-                    <button class="key" onclick="pressPin(4)">4</button><button class="key" onclick="pressPin(5)">5</button><button class="key" onclick="pressPin(6)">6</button>
-                    <button class="key" onclick="pressPin(7)">7</button><button class="key" onclick="pressPin(8)">8</button><button class="key" onclick="pressPin(9)">9</button>
+                    <button class="key" onclick="pressPin(1)">1</button>
+                    <button class="key" onclick="pressPin(2)">2</button>
+                    <button class="key" onclick="pressPin(3)">3</button>
+                    <button class="key" onclick="pressPin(4)">4</button>
+                    <button class="key" onclick="pressPin(5)">5</button>
+                    <button class="key" onclick="pressPin(6)">6</button>
+                    <button class="key" onclick="pressPin(7)">7</button>
+                    <button class="key" onclick="pressPin(8)">8</button>
+                    <button class="key" onclick="pressPin(9)">9</button>
                     <button class="key" style="grid-column: 2;" onclick="pressPin(0)">0</button>
                 </div>
             </div>
@@ -944,7 +988,7 @@
 
         <div class="glass-card locked-section" id="etape19">
             <div class="lang-fr">
-                <h2>Étape 19 : Le Boss Final 💍</h2>
+                <h2>Étape 19 : Le Boss Final Ultime 💍</h2>
                 <p>La bague se téléporte et disparaît ! Attrape-la pour en finir !</p>
                 <div id="ring-game-area" onmousemove="moveRingUltimate()" ontouchmove="moveRingUltimate()">
                     <button id="ring-btn" onclick="winRingGame()">💍</button>
@@ -959,26 +1003,47 @@
             </div>
         </div>
 
-        <div class="glass-card locked-section wedding-section" id="etape20">
+        <div class="glass-card locked-section wedding-section" id="etape21">
             <div class="lang-fr">
                 <h1 style="font-size: 3.5rem; text-transform: uppercase;">InshAllah 💍👑</h1>
-                <p style="font-size: 1.3rem; font-weight: bold;">Félicitations ma reine, tu as vaincu le site le plus long du monde !</p>
-                <p>Tu as prouvé que tu mérites le monde entier. On fera un mariage incroyable, avec des montagnes de chips poulet, des rivières de Capri-Sun, des sushis à volonté, et des trompe-l'œil en dessert.</p>
-                <p>Prépare-toi à faire le couscous le vendredi par contre 😋.</p>
-                <div style="background: rgba(255,255,255,0.8); padding: 20px; border-radius: 15px; margin-top: 20px; border: 3px dashed var(--primary);">
-                    <h3 style="margin:0; font-size: 2rem;">Qu'Allah nous bénisse et nous unisse ❤️</h3>
-                </div>
-                <button class="btn" style="margin-top: 30px; background: var(--gold); color: black; padding: 20px 40px; font-size: 1.5rem;" onclick="explodeConfetti()">🎉 OUI JE LE VEUX 🎉</button>
+                <p style="font-size: 1.3rem; font-weight: bold;">Félicitations ma Hayat, tu as fini ce cauchemar !</p>
+                <p>Tu as prouvé que t'es une vraie guerrière. On fera le plus beau des mariages, Karakou, Caftan, des montagnes de chips poulet et de sushis.</p>
+                <p>Mais avant ça...</p>
+                <button class="btn" style="margin-top: 30px; background: var(--gold); color: black; padding: 20px 40px; font-size: 1.5rem;" onclick="unlockStory()">Lis ça s'il te plaît 📖</button>
             </div>
             <div class="lang-ar">
                 <h1 style="font-size: 3.5rem;">إن شاء الله 💍👑</h1>
-                <p style="font-size: 1.3rem; font-weight: bold;">مبروك يا ملكتي، لقد هزمتِ أطول موقع في العالم!</p>
-                <p>أثبتِ أنك تستحقين العالم بأسره. سنقيم حفل زفاف مذهل، مع جبال من شيبس الدجاج، وأنهار من كابري سن، وسوشي لا حدود له.</p>
-                <p>ملاحظة: استعدي لطبخ الكسكس يوم الجمعة 😋.</p>
-                <div style="background: rgba(255,255,255,0.8); padding: 20px; border-radius: 15px; margin-top: 20px; border: 3px dashed var(--primary);">
-                    <h3 style="margin:0; font-size: 2rem;">اللهم بارك لنا واجمع بيننا في خير ❤️</h3>
+                <p style="font-size: 1.3rem; font-weight: bold;">مبروك حياتي، لقد أنهيتِ هذا الكابوس!</p>
+                <p>أنتِ محاربة. سنقيم أجمل عرس، بالقفطان والكاراكو، وجبال من شيبس الدجاج والسوشي.</p>
+                <p>ولكن قبل ذلك...</p>
+                <button class="btn" style="margin-top: 30px; background: var(--gold); color: black; padding: 20px 40px; font-size: 1.5rem;" onclick="unlockStory()">اقرئي هذا من فضلك 📖</button>
+            </div>
+        </div>
+
+        <div class="story-section locked-section" id="etape-histoire">
+            <div class="lang-fr">
+                <h2 class="story-title">À Cœur Ouvert 🖤</h2>
+                <p>Maintenant que tu as fini toutes ces conneries, il faut que je te parle sah. Mon histoire, tu ne la connais peut-être pas en entier.</p>
+                <p>Je suis né à Limoges. Mais direct après ma naissance, on m'a envoyé en Algérie, vivre chez la famille de mon père. Ça a été le début de l'enfer. C'était une vraie dinguerie comment sa famille nous a fait la misère, à ma mère et à moi. Ils nous pourrissaient la vie, tous les jours, avec de la méchanceté gratuite. Mon seul rempart, c'était ma mère. Je la préférais à tout, c'était ma seule lumière là-bas.</p>
+                <p>À l'âge de 6 ans, je suis revenu définitivement en France. Mais le mal était fait. J'avais un énorme retard scolaire en français. À l'école, c'était terrible. Je me faisais harceler, rabaisser tous les jours. C'était tellement grave, la violence de l'école, qu'on a décidé de me renvoyer en Algérie, en pensant que ça serait pour mon bien.</p>
+                <p>Mais là-bas... c'était pire. J'ai vécu un vrai cauchemar. J'ai vu ce qu'aucun gosse devrait voir. Une attaque à main armée direct sous mes yeux... j'ai vu mes potes tomber, se faire tuer devant moi. J'ai vu la mort, le sang, la vraie galère. Ça m'a détruit.</p>
+                <p>J'ai fini par rentrer en France. Je me suis installé à Lille pour vivre toute ma vie. J'ai essayé de me reconstruire, mais j'avais le cœur bousillé, je pensais que j'allais rester dans le noir pour toujours.</p>
+                <p>Et puis... tu es apparue, Leinah. Mon trompe-l'œil préféré. T'as effacé tout ce malheur. T'es ma récompense après toute cette galère. Je t'aime plus que tout, et InshAllah, tu seras la mère de mes enfants.</p>
+                <div style="text-align:center; margin-top: 40px;">
+                    <button class="btn" style="background: var(--gold); color: black;" onclick="explodeConfettiFinal()">Je t'aime ❤️</button>
                 </div>
-                <button class="btn" style="margin-top: 30px; background: var(--gold); color: black; padding: 20px 40px; font-size: 1.5rem;" onclick="explodeConfetti()">🎉 أقبل بك 🎉</button>
+            </div>
+            <div class="lang-ar">
+                <h2 class="story-title">بقلب مفتوح 🖤</h2>
+                <p>الآن وقد انتهيتِ من كل هذا، يجب أن أتحدث إليكِ بصدق. قصتي، ربما لا تعرفينها بالكامل.</p>
+                <p>لقد ولدت في ليموج. ولكن بعد ولادتي مباشرة، تم إرسالي إلى الجزائر للعيش مع عائلة والدي. كانت تلك بداية الجحيم. لقد أذاقونا الويلات، أنا وأمي. كانوا يفسدون حياتنا كل يوم بلؤم لا مبرر له. حصني الوحيد كان أمي. كنت أفضلها على كل شيء، كانت نوري الوحيد هناك.</p>
+                <p>في سن السادسة، عدت نهائياً إلى فرنسا. لكن الضرر كان قد وقع. كان لدي تأخر دراسي كبير في اللغة الفرنسية. في المدرسة، كان الأمر مروعاً. تعرضت للتنمر والإذلال كل يوم. كان الأمر خطيراً جداً لدرجة أنهم قرروا إعادتي إلى الجزائر، ظناً منهم أن ذلك لمصلحتي.</p>
+                <p>لكن هناك... كان الأمر أسوأ. عشت كابوساً حقيقياً. رأيت ما لا ينبغي لأي طفل أن يراه. هجوم مسلح أمامي مباشرة... رأيت أصدقائي يسقطون ويُقتلون أمام عيني. رأيت الموت والدم والمعاناة الحقيقية. لقد دمرني ذلك.</p>
+                <p>في النهاية، عدت إلى فرنسا. استقريت في ليل لأعيش بقية حياتي. حاولت إعادة بناء نفسي، لكن قلبي كان محطماً، اعتقدت أنني سأبقى في الظلام إلى الأبد.</p>
+                <p>ثم... ظهرتِ أنتِ يا لينة. لقد محوتِ كل هذا البؤس. أنتِ مكافأتي بعد كل هذه المعاناة. أحبك أكثر من أي شيء، وإن شاء الله، ستكونين أم أطفالي.</p>
+                <div style="text-align:center; margin-top: 40px;">
+                    <button class="btn" style="background: var(--gold); color: black;" onclick="explodeConfettiFinal()">أحبك ❤️</button>
+                </div>
             </div>
         </div>
 
@@ -992,33 +1057,25 @@
     <div class="secret-translator" id="translator" onclick="toggleLanguage()" title="Traduction">✨</div>
 
     <script>
-        // Bloat magique en fond pour alourdir et embellir
-        window.onload = function() {
-            const domBloatContainer = document.getElementById('magic-dom-bloat');
-            for(let i=0; i<50; i++) {
-                let elem = document.createElement('div');
-                elem.className = 'magic-particle';
-                let size = Math.random() * 5 + 2;
-                elem.style.width = size + 'px';
-                elem.style.height = size + 'px';
-                elem.style.left = Math.random() * 100 + 'vw';
-                elem.style.top = Math.random() * 100 + 'vh';
-                domBloatContainer.appendChild(elem);
-            }
-        };
-
         function unlockSection(id) {
             const section = document.getElementById(id);
             if(section && !section.classList.contains('unlocked')) {
                 section.classList.add('unlocked');
-                setTimeout(() => { section.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 500);
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 600);
             }
         }
 
-        /* ================= ÉTAPE 1: PIEGE ================= */
+        /* ======================================================== */
+        /* ETAPE 1: PIEGE                                           */
+        /* ======================================================== */
         let clickCount = 0;
         function handleMainClick(btn, lang) {
-            if (btn.dataset.isTrap === "true") { activateSadMode(lang); return; }
+            if (btn.dataset.isTrap === "true") {
+                activateSadMode(lang);
+                return;
+            }
             clickCount++;
             if (clickCount === 8) { 
                 document.getElementById('main-btn-fr').innerText = "Je t'aime pas"; 
@@ -1044,9 +1101,11 @@
             }
         }
 
-        /* ================= ÉTAPES 2 & 3: QUIZZ ================= */
+        /* ======================================================== */
+        /* ETAPES 2 & 3: QUIZZ                                      */
+        /* ======================================================== */
         function checkDoudou(a) { 
-            if(a==='titi'){ 
+            if(a === 'titi') { 
                 document.getElementById('doudou-res-fr').innerText = "Normal c'est le boss ❤️"; 
                 document.getElementById('doudou-res-ar').innerText = "برافو ❤️"; 
                 unlockSection('etape3'); 
@@ -1056,28 +1115,32 @@
         }
 
         function checkCouple(q, a) {
-            if(q===1 && a==='toi') { 
+            if(q === 1 && a === 'toi') { 
                 unlockSection('couple-quiz-2'); 
                 unlockSection('couple-quiz-2-ar'); 
             }
-            if(q===2 && a==='chips') { 
+            if(q === 2 && a === 'chips') { 
                 document.getElementById('couple-res-2').innerText = "Bingo ! Chips poulet & Compote 🤤"; 
                 document.getElementById('couple-res-2-ar').innerText = "صحيح! شيبس وكومبوت 🤤"; 
                 unlockSection('etape4'); 
                 initMemoryGame(); 
             }
-            else if(q===2) { 
+            else if(q === 2) { 
                 document.getElementById('couple-res-2').innerText = "Menteuse tu préfères manger 😂"; 
                 document.getElementById('couple-res-2-ar').innerText = "كذابة تحبين الأكل 😂"; 
             }
         }
 
-        /* ================= ÉTAPE 4: MEMORY ================= */
+        /* ======================================================== */
+        /* ETAPE 4: MEMORY SUSHIS ET TROMPE L'OEIL                  */
+        /* ======================================================== */
         const cardsArray = ['🧃','🧃','🍣','🍣','🍰','🍰','🐥','🐥'];
         let firstCard = null, secondCard = null, matches = 0;
+        
         function initMemoryGame() {
             const grid = document.getElementById('memory-grid'); 
             if(grid.innerHTML !== "") return;
+            
             let shuffled = cardsArray.sort(() => 0.5 - Math.random());
             shuffled.forEach(emoji => { 
                 const card = document.createElement('div'); 
@@ -1086,33 +1149,60 @@
                 card.onclick = () => flipCard(card); 
                 grid.appendChild(card); 
             });
+            
             document.getElementById('memory-grid-ar').innerHTML = grid.innerHTML; 
-            document.querySelectorAll('#memory-grid-ar .memory-card').forEach(c => { c.onclick = () => flipCard(c); });
+            document.querySelectorAll('#memory-grid-ar .memory-card').forEach(c => {
+                c.onclick = () => flipCard(c);
+            });
         }
+
         function flipCard(card) {
             if (card.classList.contains('flipped') || secondCard) return;
-            card.classList.add('flipped'); card.innerText = card.dataset.emoji;
-            if (!firstCard) { firstCard = card; } else { secondCard = card; checkMemoryMatch(); }
+            
+            card.classList.add('flipped');
+            card.innerText = card.dataset.emoji;
+            
+            if (!firstCard) {
+                firstCard = card;
+            } else {
+                secondCard = card;
+                checkMemoryMatch();
+            }
         }
+
         function checkMemoryMatch() {
             if (firstCard.dataset.emoji === secondCard.dataset.emoji) {
-                firstCard.classList.add('matched'); secondCard.classList.add('matched'); 
-                firstCard = null; secondCard = null; matches++;
-                if (matches === 4 || matches === 8) { setTimeout(() => { unlockSection('etape5'); initTiti(); }, 500); }
+                firstCard.classList.add('matched');
+                secondCard.classList.add('matched'); 
+                firstCard = null;
+                secondCard = null;
+                matches++;
+                if (matches === 4 || matches === 8) {
+                    setTimeout(() => {
+                        unlockSection('etape5');
+                        initTiti();
+                    }, 500);
+                }
             } else { 
                 setTimeout(() => { 
-                    firstCard.classList.remove('flipped'); secondCard.classList.remove('flipped'); 
-                    firstCard.innerText = ''; secondCard.innerText = ''; 
-                    firstCard = null; secondCard = null; 
+                    firstCard.classList.remove('flipped');
+                    secondCard.classList.remove('flipped'); 
+                    firstCard.innerText = '';
+                    secondCard.innerText = ''; 
+                    firstCard = null;
+                    secondCard = null; 
                 }, 600); 
             }
         }
 
-        /* ================= ÉTAPE 5: TITI ================= */
+        /* ======================================================== */
+        /* ETAPE 5: TITI                                            */
+        /* ======================================================== */
         let titiCount = 0, titiInterval;
         function initTiti() {
             titiInterval = setInterval(() => {
-                const t1 = document.getElementById('titi-target'), t2 = document.getElementById('titi-target-ar');
+                const t1 = document.getElementById('titi-target');
+                const t2 = document.getElementById('titi-target-ar');
                 if(t1) { t1.style.left = Math.random() * 80 + '%'; t1.style.top = Math.random() * 80 + '%'; }
                 if(t2) { t2.style.left = Math.random() * 80 + '%'; t2.style.top = Math.random() * 80 + '%'; }
             }, 800); 
@@ -1128,7 +1218,9 @@
             }
         }
 
-        /* ================= ÉTAPE 6: MOT DE PASSE ================= */
+        /* ======================================================== */
+        /* ETAPE 6: MOT DE PASSE                                    */
+        /* ======================================================== */
         function checkVault(lang) {
             const val = document.getElementById(lang === 'fr' ? 'vault-input-fr' : 'vault-input-ar').value.toLowerCase().replace(/\s/g, '');
             if(val === 'capri-sun' || val === 'caprisun' || val === 'كابريسن') { 
@@ -1136,7 +1228,9 @@
             }
         }
 
-        /* ================= ÉTAPE 7: JAUGE ================= */
+        /* ======================================================== */
+        /* ETAPE 7: JAUGE                                           */
+        /* ======================================================== */
         let loveProgress = 0;
         function fillLoveBar() {
             if(loveProgress >= 100) return; 
@@ -1146,34 +1240,44 @@
             setTimeout(() => { 
                 if(loveProgress > 0 && loveProgress < 100) { 
                     loveProgress -= 3; 
-                    if(loveProgress<0) loveProgress=0; 
+                    if(loveProgress < 0) loveProgress = 0; 
                     document.getElementById('love-bar').style.width = loveProgress + "%"; 
                 } 
             }, 800);
-            if(loveProgress >= 100) { unlockSection('etape8'); }
+            if(loveProgress >= 100) {
+                unlockSection('etape8');
+            }
         }
 
-        /* ================= ÉTAPE 8: DIGICODE ================= */
+        /* ======================================================== */
+        /* ETAPE 8: DIGICODE                                        */
+        /* ======================================================== */
         let currentCode = "";
         function pressKey(num) {
             if(currentCode.length >= 3) currentCode = ""; 
             currentCode += num;
             document.getElementById('code-display-fr').innerText = currentCode + "---".substring(currentCode.length);
-            if(currentCode === "213") { unlockSection('etape9'); }
+            if(currentCode === "213") {
+                unlockSection('etape9');
+            }
         }
 
-        /* ================= ÉTAPE 9: CASINO ================= */
+        /* ======================================================== */
+        /* ETAPE 9: CASINO                                          */
+        /* ======================================================== */
         let isSpinning = false;
         function spinSlot(lang) {
-            if(isSpinning) return; isSpinning = true;
+            if(isSpinning) return;
+            isSpinning = true;
             const slot = document.getElementById(lang === 'fr' ? 'slot-fr' : 'slot-ar');
             const arr = ["La vaisselle", "Le grec", "Sushis illimités 🍣", "Trompe-l'œil 🍰"]; 
             let counter = 0;
             const spinInt = setInterval(() => {
-                slot.innerText = arr[Math.floor(Math.random() * arr.length)]; counter++;
+                slot.innerText = arr[Math.floor(Math.random() * arr.length)];
+                counter++;
                 if(counter > 15) { 
                     clearInterval(spinInt); 
-                    slot.innerText = lang==='fr' ? "Sushis payés par ton homme 🍣" : "سوشي غير محدود 🍣"; 
+                    slot.innerText = lang === 'fr' ? "Sushis payés par ton homme 🍣" : "سوشي غير محدود 🍣"; 
                     slot.style.background = "var(--gold)"; 
                     slot.style.color = "black"; 
                     unlockSection('etape10'); 
@@ -1181,7 +1285,9 @@
             }, 100);
         }
 
-        /* ================= ÉTAPE 10: DETECTEUR ================= */
+        /* ======================================================== */
+        /* ETAPE 10: DETECTEUR                                      */
+        /* ======================================================== */
         let holdProgress = 0, holdInterval;
         function startHold(lang) {
             holdProgress = 0;
@@ -1199,10 +1305,15 @@
         }
         function endHold(lang) { 
             clearInterval(holdInterval); 
-            if(holdProgress < 100) { holdProgress = 0; document.getElementById('fill-' + lang).style.width = "0%"; } 
+            if(holdProgress < 100) {
+                holdProgress = 0;
+                document.getElementById('fill-' + lang).style.width = "0%";
+            } 
         }
 
-        /* ================= ÉTAPE 11: SCANNER ================= */
+        /* ======================================================== */
+        /* ETAPE 11: SCANNER                                        */
+        /* ======================================================== */
         function runScanner(lang) {
             document.getElementById(lang === 'fr' ? 'scan-line-fr' : 'scan-line-ar').style.display = 'block';
             setTimeout(() => { 
@@ -1212,7 +1323,9 @@
             }, 2000);
         }
 
-        /* ================= ÉTAPE 12: L'INTRUS ================= */
+        /* ======================================================== */
+        /* ETAPE 12: L'INTRUS                                       */
+        /* ======================================================== */
         function initIntruder() {
             const grids = [document.getElementById('intruder-grid-fr'), document.getElementById('intruder-grid-ar')];
             grids.forEach(grid => {
@@ -1226,8 +1339,11 @@
                     div.innerText = e;
                     div.onclick = () => { 
                         if(e === '🍰') { 
-                            div.style.transform="scale(2)"; 
-                            setTimeout(()=> { unlockSection('etape13'); initScratch(); }, 500); 
+                            div.style.transform = "scale(2)"; 
+                            setTimeout(() => {
+                                unlockSection('etape13');
+                                initScratch();
+                            }, 500); 
                         } else { 
                             div.style.opacity = '0.2'; 
                         } 
@@ -1237,7 +1353,9 @@
             });
         }
 
-        /* ================= ÉTAPE 13: GRATTE-GRATTE ================= */
+        /* ======================================================== */
+        /* ETAPE 13: GRATTE-GRATTE                                  */
+        /* ======================================================== */
         let scratchCount = 0;
         function initScratch() {
             const grids = [document.getElementById('scratch-grid-fr'), document.getElementById('scratch-grid-ar')];
@@ -1250,7 +1368,9 @@
                         if(block.style.opacity !== '0') { 
                             block.style.opacity = '0'; 
                             scratchCount++; 
-                            if(scratchCount >= 40 || scratchCount >= 90) { unlockSection('etape14'); } 
+                            if(scratchCount >= 40 || scratchCount >= 90) {
+                                unlockSection('etape14');
+                            } 
                         } 
                     };
                     block.onmouseover = clearBlock; 
@@ -1260,12 +1380,17 @@
             });
         }
 
-        /* ================= ÉTAPE 14: LE JUSTE PRIX ================= */
+        /* ======================================================== */
+        /* ETAPE 14: LE JUSTE PRIX                                  */
+        /* ======================================================== */
         function fleeMahrBtn(lang) {
-            const btn = document.getElementById(lang === 'fr' ? 'mahr-btn-rich-fr' : 'mahr-btn-rich-ar');
+            const btnFr = document.getElementById('mahr-btn-rich-fr'); 
+            const btnAr = document.getElementById('mahr-btn-rich-ar');
             const x = Math.random() * 200 - 100; 
             const y = Math.random() * 50 - 25;
-            btn.style.transform = `translate(${x}px, ${y}px)`;
+            
+            if(btnFr) btnFr.style.transform = `translate(${x}px, ${y}px)`; 
+            if(btnAr) btnAr.style.transform = `translate(${x}px, ${y}px)`;
             
             document.getElementById('hidden-mahr-fr').style.display = "inline-block";
             document.getElementById('hidden-mahr-ar').style.display = "inline-block";
@@ -1275,7 +1400,9 @@
             unlockSection('etape15');
         }
 
-        /* ================= ÉTAPE 15: LA PATIENCE ================= */
+        /* ======================================================== */
+        /* ETAPE 15: LA PATIENCE                                    */
+        /* ======================================================== */
         let patienceTimer, patienceTime = 5;
         function startPatience(lang) {
             clearInterval(patienceTimer);
@@ -1298,19 +1425,27 @@
             document.getElementById('pz-'+lang).style.background = "rgba(144,12,63,0.1)";
         }
 
-        /* ================= ÉTAPE 16: OÙ EST LA BAGUE ================= */
+        /* ======================================================== */
+        /* ETAPE 16: OÙ EST LA BAGUE                                */
+        /* ======================================================== */
         function initFindRing() {
             const grids = [document.getElementById('frg-fr'), document.getElementById('frg-ar')];
             grids.forEach(grid => {
                 if(grid.innerHTML !== "") return;
-                let arr = Array(49).fill('🧃'); arr.push('💍');
+                let arr = Array(49).fill('🧃');
+                arr.push('💍');
                 arr = arr.sort(() => 0.5 - Math.random());
                 arr.forEach(e => {
-                    let div = document.createElement('div'); div.className = 'find-item'; div.innerText = e;
+                    let div = document.createElement('div');
+                    div.className = 'find-item';
+                    div.innerText = e;
                     div.onclick = () => { 
                         if(e === '💍') { 
-                            div.style.transform="scale(2)"; 
-                            setTimeout(()=> { unlockSection('etape17'); initMarathon(); }, 500); 
+                            div.style.transform = "scale(2)"; 
+                            setTimeout(() => {
+                                unlockSection('etape17');
+                                initMarathon();
+                            }, 500); 
                         } else { 
                             div.style.opacity = '0.1'; 
                         } 
@@ -1320,7 +1455,9 @@
             });
         }
 
-        /* ================= ÉTAPE 17: LE MARATHON (INTERROGATOIRE) ================= */
+        /* ======================================================== */
+        /* ETAPE 17: L'INTERROGATOIRE GEANT (MARATHON)              */
+        /* ======================================================== */
         const marathonQ = [
             { qFr: "Qui est le plus beau ?", qAr: "من الأجمل؟", ansFr: ["Moi", "Moi"], ansAr: ["أنا", "أنا"], correct: 0 },
             { qFr: "Ta boisson ?", qAr: "مشروبك؟", ansFr: ["Eau", "Capri-Sun"], ansAr: ["ماء", "كابري سن"], correct: 1 },
@@ -1334,7 +1471,9 @@
             { qFr: "Tu m'aimes ?", qAr: "هل تحبينني؟", ansFr: ["Un peu", "À la folie"], ansAr: ["قليلا", "بجنون"], correct: 1 }
         ];
         let currentQ = 0;
-        function initMarathon() { loadMarathonQ(); }
+        function initMarathon() {
+            loadMarathonQ();
+        }
         function loadMarathonQ() {
             if(currentQ >= marathonQ.length) { 
                 document.getElementById('marathon-q-fr').innerText = "FÉLICITATIONS !"; 
@@ -1356,19 +1495,21 @@
         }
         function checkMarathon(ans) {
             if(ans === marathonQ[currentQ].correct) {
-                currentQ++; loadMarathonQ();
+                currentQ++;
+                loadMarathonQ();
             } else {
                 alert("FAUX ! Tu recommences tout depuis la question 1 ! 😈");
-                currentQ = 0; loadMarathonQ();
+                currentQ = 0;
+                loadMarathonQ();
             }
         }
 
-        /* ================= ÉTAPE 18: CODE PIN ANNEE ================= */
+        /* ======================================================== */
+        /* ETAPE 18: CODE PIN ANNEE (2026)                          */
+        /* ======================================================== */
         let currentPin = "";
         function pressPin(num) {
-            // L'année en cours basée sur le système est 2026.
             const codeSecret = "2026";
-            
             if(currentPin.length >= 4) currentPin = ""; 
             currentPin += num;
             
@@ -1388,7 +1529,9 @@
             }
         }
 
-        /* ================= ÉTAPE 19: BAGUE ULTIME BOSS ================= */
+        /* ======================================================== */
+        /* ETAPE 19: BAGUE ULTIME BOSS                              */
+        /* ======================================================== */
         function moveRingUltimate() {
             const btn = document.getElementById('ring-btn');
             if(Math.random() > 0.1) { 
@@ -1403,12 +1546,28 @@
             document.getElementById('ring-btn').style.opacity = "1";
             document.getElementById('ring-game-area').onmousemove = null; 
             document.getElementById('ring-game-area').ontouchmove = null;
-            setTimeout(() => { unlockSection('etape20'); }, 1000);
+            setTimeout(() => {
+                unlockSection('etape20');
+            }, 1000);
         }
 
-        /* ================= ÉTAPE 20: CONFETTIS ================= */
-        function explodeConfetti() {
-            for(let i=0; i<150; i++) {
+        /* ======================================================== */
+        /* LECTURE HISTOIRE FINALE                                  */
+        /* ======================================================== */
+        function unlockStory() {
+            document.getElementById('etape-histoire').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('etape-histoire').style.opacity = '1';
+                document.getElementById('etape-histoire').style.transform = 'translateY(0)';
+                document.getElementById('etape-histoire').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        /* ======================================================== */
+        /* CONFETTIS FINAUX                                         */
+        /* ======================================================== */
+        function explodeConfettiFinal() {
+            for(let i=0; i<200; i++) {
                 const conf = document.createElement('div'); 
                 conf.style.position = 'fixed'; 
                 conf.style.width = '15px'; 
@@ -1424,18 +1583,23 @@
                 const tx = Math.cos(angle) * velocity * 20; 
                 const ty = Math.sin(angle) * velocity * 20;
                 
-                conf.style.transition = 'all 2.5s cubic-bezier(0.1, 0.8, 0.3, 1)'; 
+                conf.style.transition = 'all 3s cubic-bezier(0.1, 0.8, 0.3, 1)'; 
                 document.body.appendChild(conf);
                 
                 setTimeout(() => { 
                     conf.style.transform = `translate(${tx}px, ${ty}px) rotate(${Math.random()*1080}deg)`; 
                     conf.style.opacity = '0'; 
                 }, 50);
-                setTimeout(() => { conf.remove(); }, 2500);
+                
+                setTimeout(() => {
+                    conf.remove();
+                }, 3000);
             }
         }
 
-        /* ================= SAD MODE ================= */
+        /* ======================================================== */
+        /* SAD MODE                                                 */
+        /* ======================================================== */
         function activateSadMode(lang) {
             document.getElementById('main-container').style.display = 'none'; 
             document.getElementById('translator').style.display = 'none'; 
@@ -1444,7 +1608,9 @@
             document.getElementById('sad-text').innerText = lang === 'fr' ? "Je savais tu m'aimais pas c triste Leinah sah..." : "كنت علابالي بلي ماتحبينيش، صدمتيني يا لينة صح...";
         }
 
-        /* ================= TRADUCTION ================= */
+        /* ======================================================== */
+        /* TRADUCTION                                               */
+        /* ======================================================== */
         let isArabic = false;
         function toggleLanguage() { 
             isArabic = !isArabic; 
