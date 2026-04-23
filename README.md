@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Parcours du Combattant pour Leinah 🇩🇿❤️</title>
+    <title>أكبر إمتحان لـ Leinah 🇩🇿❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
         /* ========================================= */
@@ -22,17 +22,13 @@
             padding: 0;
             min-height: 100vh;
             background: linear-gradient(135deg, #1a0b12, #4a001a);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Tajawal', sans-serif;
             color: #fff;
             overflow-x: hidden;
             scroll-behavior: smooth;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             user-select: none;
-        }
-
-        body[dir="rtl"] {
-            font-family: 'Tajawal', sans-serif;
         }
 
         #main-container {
@@ -46,7 +42,7 @@
         }
 
         /* ========================================= */
-        /* LE DESIGN DES CARTES (GLASSMORPHISM)      */
+        /* LE DESIGN DES CARTES                      */
         /* ========================================= */
         .glass-card {
             background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,204,213,0.95));
@@ -115,6 +111,7 @@
             text-shadow: 0 0 15px rgba(255,0,85,0.8), 0 0 30px rgba(255,0,85,0.5);
             display: inline-block;
             animation: heartbeat 1.5s infinite;
+            font-family: 'Poppins', sans-serif; /* Pour les prénoms latins */
         }
 
         @keyframes heartbeat {
@@ -176,8 +173,8 @@
 
         .tiny-btn {
             display: none;
-            font-size: 0.5rem;
-            padding: 3px 8px;
+            font-size: 0.8rem;
+            padding: 5px 10px;
             margin-top: 5px;
             opacity: 0.6;
             box-shadow: none;
@@ -310,6 +307,7 @@
             margin-bottom: 20px;
             font-weight: bold;
             min-height: 40px;
+            direction: ltr; /* Pour que les chiffres s'affichent correctement */
         }
 
         .slot-machine {
@@ -398,6 +396,61 @@
             transition: opacity 0.2s;
         }
 
+        .intruder-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 20px;
+            background: rgba(255,255,255,0.5);
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid var(--primary);
+        }
+
+        .intruder-item {
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .intruder-item:hover {
+            transform: scale(1.3);
+        }
+
+        .hold-btn {
+            padding: 30px;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 5px solid white;
+            box-shadow: 0 0 20px var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(144, 12, 63, 0.7); }
+            70% { box-shadow: 0 0 0 30px rgba(144, 12, 63, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(144, 12, 63, 0); }
+        }
+
+        .detect-bar {
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .detect-fill {
+            height: 100%;
+            background: var(--dz-green);
+            width: 0%;
+            transition: width 0.1s;
+        }
+
         #mahr-btn-rich {
             position: relative;
         }
@@ -421,6 +474,7 @@
             font-weight: bold;
             color: var(--primary);
             position: absolute;
+            font-family: 'Poppins', sans-serif;
         }
 
         .find-ring-grid {
@@ -495,13 +549,13 @@
             border-radius: 30px;
             padding: 40px;
             margin-top: 50px;
-            text-align: left;
+            text-align: justify;
             box-shadow: 0 0 50px rgba(144, 12, 63, 0.5);
+            line-height: 2;
         }
 
         .story-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.2rem;
             margin-bottom: 20px;
         }
 
@@ -517,33 +571,6 @@
         /* ========================================= */
         /* TRADUCTION & AUTRES                       */
         /* ========================================= */
-        .secret-translator {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            opacity: 0.15;
-            cursor: pointer;
-            font-size: 25px;
-            z-index: 100;
-            transition: 0.3s;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            padding: 10px;
-        }
-
-        .secret-translator:hover {
-            opacity: 1;
-            transform: scale(1.3) rotate(180deg);
-            box-shadow: 0 0 20px gold;
-        }
-
-        .lang-ar { display: none; }
-        .lang-fr { display: block; }
-        
-        [dir="rtl"] .lang-fr { display: none; }
-        [dir="rtl"] .lang-ar { display: block; }
-        [dir="rtl"] .story-section { text-align: right; }
-
         #sad-mode {
             display: none;
             position: fixed;
@@ -576,58 +603,10 @@
             font-size: 10px;
             pointer-events: none;
         }
-        
-        .hold-btn {
-            padding: 30px;
-            font-size: 1.5rem;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            border: 5px solid white;
-            box-shadow: 0 0 20px var(--primary);
-            animation: pulse 2s infinite;
-        }
 
-        .detect-bar {
-            width: 100%;
-            height: 20px;
-            background: #ddd;
-            border-radius: 10px;
-            margin-top: 20px;
-            overflow: hidden;
-        }
-
-        .detect-fill {
-            height: 100%;
-            background: var(--dz-green);
-            width: 0%;
-            transition: width 0.1s;
-        }
-        
-        .intruder-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            justify-content: center;
-            margin-top: 20px;
-            background: rgba(255,255,255,0.5);
-            padding: 15px;
-            border-radius: 15px;
-            border: 2px solid var(--primary);
-        }
-
-        .intruder-item {
-            font-size: 2rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .intruder-item:hover {
-            transform: scale(1.3);
-        }
     </style>
 </head>
-<body dir="ltr" id="body">
+<body>
 
     <div id="mur-decoratif" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
         <span class="star-decor" style="top: 10%; left: 5%;">✨</span>
@@ -654,446 +633,222 @@
         <span class="star-decor" style="top: 78%; left: 20%;">✨</span>
         <span class="star-decor" style="top: 88%; left: 55%;">✨</span>
         <span class="star-decor" style="top: 98%; left: 80%;">✨</span>
+        <span class="star-decor" style="top: 5%; left: 30%;">✨</span>
+        <span class="star-decor" style="top: 8%; left: 70%;">✨</span>
+        <span class="star-decor" style="top: 40%; left: 5%;">✨</span>
+        <span class="star-decor" style="top: 50%; left: 20%;">❤️</span>
+        <span class="star-decor" style="top: 60%; left: 90%;">✨</span>
+        <span class="star-decor" style="top: 80%; left: 40%;">❤️</span>
     </div>
 
     <div id="main-container">
         
         <div class="glass-card" id="etape1">
-            <div class="lang-fr">
-                <h1>Pour ma <span class="hayat-glow">hayat</span> Leinah 🇩🇿✨</h1>
-                <p>Mon plus beau trompe-l'œil : magnifique à l'extérieur, mais tu caches un caractère de fou à l'intérieur 😂.</p>
-                <h2>Étape 1 : L'Échauffement 😈</h2>
-                <p>Prouve que tu es prête. Clique 10 fois de suite pour ouvrir le site :</p>
-                <div>
-                    <button class="btn troll-btn" id="main-btn-fr" onclick="handleMainClick(this, 'fr')">JE T'AIME</button>
-                    <br>
-                    <button class="btn tiny-btn" id="tiny-btn-fr" onclick="handleTinyClick('fr')">je t'aime</button>
-                </div>
-            </div>
-            <div class="lang-ar">
-                <h1>إلى <span class="hayat-glow">حياتي</span> لينة 🇩🇿✨</h1>
-                <p>أجمل خداع بصري: جميلة من الخارج، لكنك تخفين طبعاً مجنوناً في الداخل 😂.</p>
-                <h2>المرحلة 1: الإحماء 😈</h2>
-                <p>أثبتي أنك مستعدة. اضغطي 10 مرات متتالية لفتح الموقع:</p>
-                <div>
-                    <button class="btn troll-btn" id="main-btn-ar" onclick="handleMainClick(this, 'ar')">أنا أحبك</button>
-                    <br>
-                    <button class="btn tiny-btn" id="tiny-btn-ar" onclick="handleTinyClick('ar')">أنا أحبك</button>
-                </div>
+            <h1>إلى <span class="hayat-glow">Leinah</span> 🇩🇿✨</h1>
+            <p>أجمل Trompe l'œil ديالي: شابة بزاف من برا، بصح مخبية كاركتير مهبول لداخل 😂.</p>
+            <h2>المرحلة 1: التسخينات 😈</h2>
+            <p>بيني بلي راكي واجدة. عبزي 10 مرات متابعين باش تفتحي السيت:</p>
+            <div>
+                <button class="btn troll-btn" id="main-btn" onclick="handleMainClick(this)">نحبك</button>
+                <br>
+                <button class="btn tiny-btn" id="tiny-btn" onclick="handleTinyClick()">نحبك</button>
             </div>
         </div>
 
         <div class="glass-card locked-section" id="etape2">
-            <div class="lang-fr">
-                <h2>Étape 2 : Le Doudou 🧸</h2>
-                <div class="quiz-box">
-                    <h3>C'est qui le doudou numéro 1 ?</h3>
-                    <button class="btn btn-small" onclick="checkDoudou('merwan')">Merwan</button>
-                    <button class="btn btn-small" onclick="checkDoudou('titi')">Titi</button>
-                    <p class="quiz-result" id="doudou-res-fr"></p>
-                </div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 2: الدودو 🧸</h2>
-                <div class="quiz-box">
-                    <h3>من هو الدودو الأول؟</h3>
-                    <button class="btn btn-small" onclick="checkDoudou('merwan')">مروان</button>
-                    <button class="btn btn-small" onclick="checkDoudou('titi')">تيتي</button>
-                    <p class="quiz-result" id="doudou-res-ar"></p>
-                </div>
+            <h2>المرحلة 2: الدودو 🧸</h2>
+            <div class="quiz-box">
+                <h3>شكون هو الدودو الأول؟</h3>
+                <button class="btn btn-small" onclick="checkDoudou('merwan')">Merwan</button>
+                <button class="btn btn-small" onclick="checkDoudou('titi')">Titi الزعيم</button>
+                <p class="quiz-result" id="doudou-res"></p>
             </div>
         </div>
 
         <div class="glass-card locked-section" id="etape3">
-            <div class="lang-fr">
-                <h2>Étape 3 : Les Dossiers ⚖️</h2>
-                <div class="quiz-box" id="couple-quiz-1">
-                    <h3>Qui boude pour un oui ou pour un non ? 🙄</h3>
-                    <button class="btn btn-small" onclick="checkCouple(1, 'moi')">Moi</button>
-                    <button class="btn btn-small" onclick="checkCouple(1, 'toi')">Toi</button>
-                    <p class="quiz-result" id="couple-res-1"></p>
-                </div>
-                <div class="quiz-box locked-section" id="couple-quiz-2">
-                    <h3>Que dois-je t'acheter pour te calmer quand tu boudes ? 😋</h3>
-                    <button class="btn btn-small" onclick="checkCouple(2, 'fleur')">Un bouquet de roses</button>
-                    <button class="btn btn-small" onclick="checkCouple(2, 'chips')">Des chips poulet et une compote</button>
-                    <p class="quiz-result" id="couple-res-2"></p>
-                </div>
+            <h2>المرحلة 3: الدواسة ⚖️</h2>
+            <div class="quiz-box" id="couple-quiz-1">
+                <h3>شكون يزعف على جال والو؟ 🙄</h3>
+                <button class="btn btn-small" onclick="checkCouple(1, 'moi')">أنا</button>
+                <button class="btn btn-small" onclick="checkCouple(1, 'toi')">أنتي</button>
+                <p class="quiz-result" id="couple-res-1"></p>
             </div>
-            <div class="lang-ar">
-                <h2>المرحلة 3: الملفات ⚖️</h2>
-                <div class="quiz-box" id="couple-quiz-1-ar">
-                    <h3>من يغضب لأتفه الأسباب؟ 🙄</h3>
-                    <button class="btn btn-small" onclick="checkCouple(1, 'moi')">أنا</button>
-                    <button class="btn btn-small" onclick="checkCouple(1, 'toi')">أنتِ</button>
-                    <p class="quiz-result" id="couple-res-1-ar"></p>
-                </div>
-                <div class="quiz-box locked-section" id="couple-quiz-2-ar">
-                    <h3>ماذا يجب أن أشتري لك لأهدئك؟ 😋</h3>
-                    <button class="btn btn-small" onclick="checkCouple(2, 'fleur')">باقة ورود</button>
-                    <button class="btn btn-small" onclick="checkCouple(2, 'chips')">شيبس دجاج وكومبوت</button>
-                    <p class="quiz-result" id="couple-res-2-ar"></p>
-                </div>
+            <div class="quiz-box locked-section" id="couple-quiz-2">
+                <h3>واش لازم نشريلك باش نرضيك كي تزعفي؟ 😋</h3>
+                <button class="btn btn-small" onclick="checkCouple(2, 'fleur')">بوكي ورد</button>
+                <button class="btn btn-small" onclick="checkCouple(2, 'chips')">شيبس دجاج و كومبوت</button>
+                <p class="quiz-result" id="couple-res-2"></p>
             </div>
         </div>
 
         <div class="glass-card locked-section" id="etape4">
-            <div class="lang-fr">
-                <h2>Étape 4 : Memory de nos kiffs 🧠</h2>
-                <p>Trouve toutes les paires (Sushis, Trompe l'œil, etc.) pour avancer !</p>
-                <div class="memory-grid" id="memory-grid"></div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 4: ذاكرة أشيائنا المفضلة 🧠</h2>
-                <p>جدي كل الأزواج للتقدم!</p>
-                <div class="memory-grid" id="memory-grid-ar"></div>
-            </div>
+            <h2>المرحلة 4: ميموري تاع واش نحبو 🧠</h2>
+            <p>حوسي على ڨاع الزواوج (سوشي، Trompe l'œil..) باش تجوزي!</p>
+            <div class="memory-grid" id="memory-grid"></div>
         </div>
 
         <div class="glass-card locked-section" id="etape5">
-            <div class="lang-fr">
-                <h2>Étape 5 : Attrape Titi 🐥</h2>
-                <p>Il a volé ta compote ! Attrape-le 4 fois pour la récupérer.</p>
-                <p style="font-weight:bold; color:var(--primary);">Score : <span id="titi-score">0</span> / 4</p>
-                <div id="titi-area">
-                    <div class="moving-titi" id="titi-target" onclick="catchTiti()">🐥</div>
-                </div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 5: أمسكي تيتي 🐥</h2>
-                <p>لقد سرق الكومبوت! أمسكيه 4 مرات لاستعادتها.</p>
-                <p style="font-weight:bold; color:var(--primary);">النتيجة: <span id="titi-score-ar">0</span> / 4</p>
-                <div id="titi-area-ar">
-                    <div class="moving-titi" id="titi-target-ar" onclick="catchTiti()">🐥</div>
-                </div>
+            <h2>المرحلة 5: احكمي Titi 🐥</h2>
+            <p>سرقلك الكومبوت ديالك! احكميه 4 مرات باش ترجعيها.</p>
+            <p style="font-weight:bold; color:var(--primary);">النتيجة: <span id="titi-score">0</span> / 4</p>
+            <div id="titi-area">
+                <div class="moving-titi" id="titi-target" onclick="catchTiti()">🐥</div>
             </div>
         </div>
 
         <div class="glass-card locked-section" id="etape6">
-            <div class="lang-fr">
-                <h2>Étape 6 : La Sécurité 🔐</h2>
-                <p>Quel est mon seul et unique vrai rival ? (Une boisson légendaire)</p>
-                <input type="text" class="vault-input" id="vault-input-fr" placeholder="Écris ici...">
-                <button class="btn" onclick="checkVault('fr')">Ouvrir</button>
-                <p class="quiz-result" id="vault-res-fr"></p>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 6: الأمان 🔐</h2>
-                <p>من هو منافسي الوحيد؟ (مشروب أسطوري)</p>
-                <input type="text" class="vault-input" id="vault-input-ar" placeholder="اكتبي هنا..." dir="rtl">
-                <button class="btn" onclick="checkVault('ar')">فتح</button>
-                <p class="quiz-result" id="vault-res-ar"></p>
-            </div>
+            <h2>المرحلة 6: السيكيريتي 🔐</h2>
+            <p>شكون هو العدو ديالي الوحيد؟ (مشروب أسطوري)</p>
+            <input type="text" class="vault-input" id="vault-input" placeholder="أكتبي هنا..." dir="rtl">
+            <button class="btn" onclick="checkVault()">فتح</button>
+            <p class="quiz-result" id="vault-res"></p>
         </div>
 
         <div class="glass-card locked-section" id="etape7">
-            <div class="lang-fr">
-                <h2>Étape 7 : Preuve d'effort ⚡</h2>
-                <p>Spam le bouton pour remplir la jauge ! (Allez la flemmasse, c'est facile)</p>
-                <div class="progress-container">
-                    <div class="progress-bar" id="love-bar">0%</div>
-                </div>
-                <button class="btn troll-btn" style="width:100%;" onclick="fillLoveBar()">❤️ SPAM MOI ❤️</button>
+            <h2>المرحلة 7: بيني شطارتك ⚡</h2>
+            <p>عبزي بالخف باش تعمري الجوج! (يا الفنيانة ساهلة)</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="love-bar">0%</div>
             </div>
-            <div class="lang-ar">
-                <h2>المرحلة 7: دليل الجهد ⚡</h2>
-                <p>اضغطي بسرعة لملء العداد! (هيا يا كسولة، إنه سهل)</p>
-                <div class="progress-container">
-                    <div class="progress-bar" id="love-bar-ar">0%</div>
-                </div>
-                <button class="btn troll-btn" style="width:100%;" onclick="fillLoveBar()">❤️ اضغطي بقوة ❤️</button>
-            </div>
+            <button class="btn troll-btn" style="width:100%;" onclick="fillLoveBar()">❤️ عبزي بالخف ❤️</button>
         </div>
 
         <div class="glass-card locked-section" id="etape8">
-            <div class="lang-fr">
-                <h2>Étape 8 : Le Digicode DZ 🇩🇿</h2>
-                <p>L'indicatif de la puissance absolue. Prouve tes origines.</p>
-                <div class="code-display" id="code-display-fr">---</div>
-                <div class="keypad">
-                    <button class="key" onclick="pressKey(1)">1</button>
-                    <button class="key" onclick="pressKey(2)">2</button>
-                    <button class="key" onclick="pressKey(3)">3</button>
-                    <button class="key" onclick="pressKey(4)">4</button>
-                    <button class="key" onclick="pressKey(5)">5</button>
-                    <button class="key" onclick="pressKey(6)">6</button>
-                    <button class="key" onclick="pressKey(7)">7</button>
-                    <button class="key" onclick="pressKey(8)">8</button>
-                    <button class="key" onclick="pressKey(9)">9</button>
-                    <button class="key" style="grid-column: 2;" onclick="pressKey(0)">0</button>
-                </div>
-                <p class="quiz-result" id="code-res-fr"></p>
+            <h2>المرحلة 8: كود ديزاد 🇩🇿</h2>
+            <p>كود القوة المطلقة. بيني أصولك.</p>
+            <div class="code-display" id="code-display">---</div>
+            <div class="keypad">
+                <button class="key" onclick="pressKey(1)">1</button>
+                <button class="key" onclick="pressKey(2)">2</button>
+                <button class="key" onclick="pressKey(3)">3</button>
+                <button class="key" onclick="pressKey(4)">4</button>
+                <button class="key" onclick="pressKey(5)">5</button>
+                <button class="key" onclick="pressKey(6)">6</button>
+                <button class="key" onclick="pressKey(7)">7</button>
+                <button class="key" onclick="pressKey(8)">8</button>
+                <button class="key" onclick="pressKey(9)">9</button>
+                <button class="key" style="grid-column: 2;" onclick="pressKey(0)">0</button>
             </div>
-            <div class="lang-ar">
-                <h2>المرحلة 8: الرمز السري 🇩🇿</h2>
-                <p>رمز القوة المطلقة. أثبتي أصولك.</p>
-                <div class="code-display" id="code-display-ar">---</div>
-                <div class="keypad">
-                    <button class="key" onclick="pressKey(1)">1</button>
-                    <button class="key" onclick="pressKey(2)">2</button>
-                    <button class="key" onclick="pressKey(3)">3</button>
-                    <button class="key" onclick="pressKey(4)">4</button>
-                    <button class="key" onclick="pressKey(5)">5</button>
-                    <button class="key" onclick="pressKey(6)">6</button>
-                    <button class="key" onclick="pressKey(7)">7</button>
-                    <button class="key" onclick="pressKey(8)">8</button>
-                    <button class="key" onclick="pressKey(9)">9</button>
-                    <button class="key" style="grid-column: 2;" onclick="pressKey(0)">0</button>
-                </div>
-                <p class="quiz-result" id="code-res-ar"></p>
-            </div>
+            <p class="quiz-result" id="code-res"></p>
         </div>
 
         <div class="glass-card locked-section" id="etape9">
-            <div class="lang-fr">
-                <h2>Étape 9 : Casino du Destin 🎰</h2>
-                <p>Tire le levier pour voir ce que je t'offre (C'est le destin qui décide).</p>
-                <div class="slot-machine" id="slot-fr">❓❓❓</div>
-                <button class="btn" id="btn-slot-fr" onclick="spinSlot('fr')">Tirer le levier</button>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 9: كازينو القدر 🎰</h2>
-                <p>اسحبي الرافعة لترين هديتك (القدر هو من يقرر).</p>
-                <div class="slot-machine" id="slot-ar">❓❓❓</div>
-                <button class="btn" id="btn-slot-ar" onclick="spinSlot('ar')">اسحبي الرافعة</button>
-            </div>
+            <h2>المرحلة 9: كازينو الزهر 🎰</h2>
+            <p>اجبدي المانيط وشوفي واش نهديلك (الزهر لي يقرر).</p>
+            <div class="slot-machine" id="slot">❓❓❓</div>
+            <button class="btn" id="btn-slot" onclick="spinSlot()">اجبدي المانيط</button>
         </div>
 
         <div class="glass-card locked-section" id="etape10">
-            <div class="lang-fr">
-                <h2>Étape 10 : Détecteur de Mensonge 📡</h2>
-                <p>Maintiens ton doigt 3 secondes sans lâcher pour prouver que tu m'aimes pour de vrai.</p>
-                <button class="btn hold-btn" id="hold-fr" onmousedown="startHold('fr')" onmouseup="endHold('fr')" onmouseleave="endHold('fr')" ontouchstart="startHold('fr')" ontouchend="endHold('fr')">MAINTIENS</button>
-                <div class="detect-bar"><div class="detect-fill" id="fill-fr"></div></div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 10: كشف الكذب 📡</h2>
-                <p>أبقي إصبعك 3 ثوانٍ دون إفلات لإثبات أنك تحبينني حقاً.</p>
-                <button class="btn hold-btn" id="hold-ar" onmousedown="startHold('ar')" onmouseup="endHold('ar')" onmouseleave="endHold('ar')" ontouchstart="startHold('ar')" ontouchend="endHold('ar')">اضغطي مطولاً</button>
-                <div class="detect-bar"><div class="detect-fill" id="fill-ar"></div></div>
-            </div>
+            <h2>المرحلة 10: كاشف الكذب 📡</h2>
+            <p>ابقى معبزة 3 ثواني بلا ما تطلڨي باش تبيني بلي تحبيني صح.</p>
+            <button class="btn hold-btn" id="hold" onmousedown="startHold()" onmouseup="endHold()" onmouseleave="endHold()" ontouchstart="startHold()" ontouchend="endHold()">عبزي و ابقاي</button>
+            <div class="detect-bar"><div class="detect-fill" id="fill"></div></div>
         </div>
 
         <div class="glass-card locked-section" id="etape11">
-            <div class="lang-fr">
-                <h2>Étape 11 : Scanner Biométrique 🧬</h2>
-                <p>Clique pour scanner ton cœur et vérifier ton ADN DZ.</p>
-                <div class="scanner-container" id="scanner-btn-fr" onclick="runScanner('fr')">
-                    ❤️
-                    <div class="scan-line" id="scan-line-fr"></div>
-                </div>
-                <p class="quiz-result" id="scan-res-fr"></p>
+            <h2>المرحلة 11: سكانير القلب 🧬</h2>
+            <p>عبزي باش تسكاني قلبك ونشوفو لاديان ديزاد ديالك.</p>
+            <div class="scanner-container" id="scanner-btn" onclick="runScanner()">
+                ❤️
+                <div class="scan-line" id="scan-line"></div>
             </div>
-            <div class="lang-ar">
-                <h2>المرحلة 11: الفحص الحيوي 🧬</h2>
-                <p>اضغطي لفحص قلبك والتحقق من الحمض النووي الجزائري الخاص بك.</p>
-                <div class="scanner-container" id="scanner-btn-ar" onclick="runScanner('ar')">
-                    ❤️
-                    <div class="scan-line" id="scan-line-ar"></div>
-                </div>
-                <p class="quiz-result" id="scan-res-ar"></p>
-            </div>
+            <p class="quiz-result" id="scan-res"></p>
         </div>
 
         <div class="glass-card locked-section" id="etape12">
-            <div class="lang-fr">
-                <h2>Étape 12 : L'Intrus 👀</h2>
-                <p>Trouve le Trompe-l'œil 🍰 caché parmi les Sushis 🍣 !</p>
-                <div class="intruder-grid" id="intruder-grid-fr"></div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 12: الدخيل 👀</h2>
-                <p>جدي الخداع البصري 🍰 المخفي بين السوشي 🍣!</p>
-                <div class="intruder-grid" id="intruder-grid-ar"></div>
-            </div>
+            <h2>المرحلة 12: الدخيل 👀</h2>
+            <p>حوسي على Trompe l'œil 🍰 المخبأ وسط السوشي 🍣!</p>
+            <div class="intruder-grid" id="intruder-grid"></div>
         </div>
 
         <div class="glass-card locked-section" id="etape13">
-            <div class="lang-fr">
-                <h2>Étape 13 : Gratte-Gratte 🎟️</h2>
-                <p>Passe ton doigt pour dévoiler la surprise dorée !</p>
-                <div class="scratch-container">
-                    VIP MARIAGE💍
-                    <div class="scratch-grid" id="scratch-grid-fr"></div>
-                </div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 13: بطاقة الحظ 🎟️</h2>
-                <p>امسحي لاكتشاف المفاجأة الذهبية!</p>
-                <div class="scratch-container">
-                    زفاف VIP💍
-                    <div class="scratch-grid" id="scratch-grid-ar"></div>
-                </div>
+            <h2>المرحلة 13: ڨراطي ڨراطي 🎟️</h2>
+            <p>جوزي صبعك باش تشوفي السيربريز!</p>
+            <div class="scratch-container">
+                زواج VIP💍
+                <div class="scratch-grid" id="scratch-grid"></div>
             </div>
         </div>
 
         <div class="glass-card locked-section" id="etape14">
-            <div class="lang-fr">
-                <h2>Étape 14 : Le Juste Prix (La Dot) 💰</h2>
-                <p>Combien vaux-tu ? Choisis bien ta dot.</p>
-                <button class="btn btn-small" onclick="alert('Mdrrr tu vaux bien plus que ça la ji3ena !')">100 €</button>
-                <button class="btn btn-small" onclick="alert('Toujours pas, tu te sous-estimes lfm de mvi !')">10 000 €</button>
-                <button class="btn" id="mahr-btn-rich-fr" onmouseover="fleeMahrBtn('fr')" ontouchstart="fleeMahrBtn('fr')">1 MILLIARD 💎</button>
-                <br>
-                <button class="btn tiny-btn" id="hidden-mahr-fr" style="display:none;" onclick="winMahr('fr')">J'ai pas de prix ❤️</button>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 14: المهر 💰</h2>
-                <p>كم تساوين؟ اختاري مهرك.</p>
-                <button class="btn btn-small" onclick="alert('ههه أنتِ تساوين أكثر بكثير يا جيعانة!')">100 €</button>
-                <button class="btn btn-small" onclick="alert('لا، أنتِ تستهينين بنفسك يا مرأة حياتي!')">10 000 €</button>
-                <button class="btn" id="mahr-btn-rich-ar" onmouseover="fleeMahrBtn('ar')" ontouchstart="fleeMahrBtn('ar')">مليار 💎</button>
-                <br>
-                <button class="btn tiny-btn" id="hidden-mahr-ar" style="display:none;" onclick="winMahr('ar')">ليس لي ثمن ❤️</button>
-            </div>
+            <h2>المرحلة 14: السومة تاعك (المهر) 💰</h2>
+            <p>شحال تسواي؟ خيري المهر ديالك.</p>
+            <button class="btn btn-small" onclick="alert('ههه تسواي كثر من هكا يا الجيعانة!')">100 €</button>
+            <button class="btn btn-small" onclick="alert('مزال، راكي طيحتي بقيمتك يا مراة حياتي!')">10 000 €</button>
+            <button class="btn" id="mahr-btn-rich" onmouseover="fleeMahrBtn()" ontouchstart="fleeMahrBtn()">ملايار 💎</button>
+            <br>
+            <button class="btn tiny-btn" id="hidden-mahr" style="display:none;" onclick="winMahr()">مانتسواش بمال الدنيا ❤️</button>
         </div>
 
         <div class="glass-card locked-section" id="etape15">
-            <div class="lang-fr">
-                <h2>Étape 15 : La Patience ⏳</h2>
-                <p>Mets ton doigt/souris dans la case rouge et NE BOUGE PLUS pendant 5 secondes.</p>
-                <div class="patience-zone" id="pz-fr" onmouseenter="startPatience('fr')" onmouseleave="failPatience('fr')" ontouchstart="startPatience('fr')" ontouchend="failPatience('fr')">
-                    <span class="patience-timer" id="pt-fr">5</span>
-                </div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 15: الصبر ⏳</h2>
-                <p>ضعي إصبعك/الماوس في المربع الأحمر ولا تتحركي لمدة 5 ثوانٍ.</p>
-                <div class="patience-zone" id="pz-ar" onmouseenter="startPatience('ar')" onmouseleave="failPatience('ar')" ontouchstart="startPatience('ar')" ontouchend="failPatience('ar')">
-                    <span class="patience-timer" id="pt-ar">5</span>
-                </div>
+            <h2>المرحلة 15: الصبر ⏳</h2>
+            <p>حطي صبعك فالمربع الأحمر وماتتحركيش ڨاع لـ 5 ثواني.</p>
+            <div class="patience-zone" id="pz" onmouseenter="startPatience()" onmouseleave="failPatience()" ontouchstart="startPatience()" ontouchend="failPatience()">
+                <span class="patience-timer" id="pt">5</span>
             </div>
         </div>
 
         <div class="glass-card locked-section" id="etape16">
-            <div class="lang-fr">
-                <h2>Étape 16 : Test de Vue 👁️</h2>
-                <p>Trouve la bague 💍 cachée parmi tous ces Capri-Suns.</p>
-                <div class="find-ring-grid" id="frg-fr"></div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 16: فحص النظر 👁️</h2>
-                <p>جدي الخاتم 💍 المخفي بين الكابري سن.</p>
-                <div class="find-ring-grid" id="frg-ar"></div>
-            </div>
+            <h2>المرحلة 16: تيست تاع الشوف 👁️</h2>
+            <p>حوسي على الخاتم 💍 المخبأ وسط Capri-Sun.</p>
+            <div class="find-ring-grid" id="frg"></div>
         </div>
 
         <div class="glass-card locked-section" id="etape17">
-            <div class="lang-fr">
-                <h2>Étape 17 : L'Interrogatoire de la Mairie 📝</h2>
-                <p>Réponds correctement aux 10 questions d'affilée. Une erreur = tu recommences tout.</p>
-                <h3 style="color:var(--gold);">Question <span id="q-num-fr">1</span>/10</h3>
-                <div class="marathon-card">
-                    <h3 id="marathon-q-fr">Chargement...</h3>
-                    <div id="marathon-btns-fr"></div>
-                </div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 17: ماراثون البلدية 📝</h2>
-                <p>أجيبي بشكل صحيح على 10 أسئلة متتالية. خطأ واحد = تبدأين من جديد.</p>
-                <h3 style="color:var(--gold);">السؤال <span id="q-num-ar">1</span>/10</h3>
-                <div class="marathon-card">
-                    <h3 id="marathon-q-ar">جاري التحميل...</h3>
-                    <div id="marathon-btns-ar"></div>
-                </div>
+            <h2>المرحلة 17: لونكيط تاع البلدية 📝</h2>
+            <p>جاوبي صحيح على 10 أسئلة متابعين. تغلطي مرة = تعاودي من الزيرو.</p>
+            <h3 style="color:var(--gold);">السؤال <span id="q-num">1</span>/10</h3>
+            <div class="marathon-card">
+                <h3 id="marathon-q">جاري التحميل...</h3>
+                <div id="marathon-btns"></div>
             </div>
         </div>
 
         <div class="glass-card locked-section" id="etape18">
-            <div class="lang-fr">
-                <h2>Étape 18 : Code PIN du Cœur 🔢</h2>
-                <p>Quel est le code ? Indice : L'année où l'on est aujourd'hui.</p>
-                <div class="code-display" id="pin-display-fr">----</div>
-                <div class="keypad">
-                    <button class="key" onclick="pressPin(1)">1</button>
-                    <button class="key" onclick="pressPin(2)">2</button>
-                    <button class="key" onclick="pressPin(3)">3</button>
-                    <button class="key" onclick="pressPin(4)">4</button>
-                    <button class="key" onclick="pressPin(5)">5</button>
-                    <button class="key" onclick="pressPin(6)">6</button>
-                    <button class="key" onclick="pressPin(7)">7</button>
-                    <button class="key" onclick="pressPin(8)">8</button>
-                    <button class="key" onclick="pressPin(9)">9</button>
-                    <button class="key" style="grid-column: 2;" onclick="pressPin(0)">0</button>
-                </div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 18: الرمز السري للقلب 🔢</h2>
-                <p>ما هو الرمز؟ تلميح: السنة الحالية.</p>
-                <div class="code-display" id="pin-display-ar">----</div>
-                <div class="keypad">
-                    <button class="key" onclick="pressPin(1)">1</button>
-                    <button class="key" onclick="pressPin(2)">2</button>
-                    <button class="key" onclick="pressPin(3)">3</button>
-                    <button class="key" onclick="pressPin(4)">4</button>
-                    <button class="key" onclick="pressPin(5)">5</button>
-                    <button class="key" onclick="pressPin(6)">6</button>
-                    <button class="key" onclick="pressPin(7)">7</button>
-                    <button class="key" onclick="pressPin(8)">8</button>
-                    <button class="key" onclick="pressPin(9)">9</button>
-                    <button class="key" style="grid-column: 2;" onclick="pressPin(0)">0</button>
-                </div>
+            <h2>المرحلة 18: كود PIN تاع القلب 🔢</h2>
+            <p>واشنو هو الكود؟ أنديس: العام لي رانا فيه دوكا.</p>
+            <div class="code-display" id="pin-display">----</div>
+            <div class="keypad">
+                <button class="key" onclick="pressPin(1)">1</button>
+                <button class="key" onclick="pressPin(2)">2</button>
+                <button class="key" onclick="pressPin(3)">3</button>
+                <button class="key" onclick="pressPin(4)">4</button>
+                <button class="key" onclick="pressPin(5)">5</button>
+                <button class="key" onclick="pressPin(6)">6</button>
+                <button class="key" onclick="pressPin(7)">7</button>
+                <button class="key" onclick="pressPin(8)">8</button>
+                <button class="key" onclick="pressPin(9)">9</button>
+                <button class="key" style="grid-column: 2;" onclick="pressPin(0)">0</button>
             </div>
         </div>
 
         <div class="glass-card locked-section" id="etape19">
-            <div class="lang-fr">
-                <h2>Étape 19 : Le Boss Final Ultime 💍</h2>
-                <p>La bague se téléporte et disparaît ! Attrape-la pour en finir !</p>
-                <div id="ring-game-area" onmousemove="moveRingUltimate()" ontouchmove="moveRingUltimate()">
-                    <button id="ring-btn" onclick="winRingGame()">💍</button>
-                </div>
-            </div>
-            <div class="lang-ar">
-                <h2>المرحلة 19: الزعيم الأخير المطلق 💍</h2>
-                <p>الخاتم ينتقل ويختفي! أمسكيه للانتهاء!</p>
-                <div id="ring-game-area" onmousemove="moveRingUltimate()" ontouchmove="moveRingUltimate()">
-                    <button id="ring-btn" onclick="winRingGame()">💍</button>
-                </div>
+            <h2>المرحلة 19: البوس اللخراني 💍</h2>
+            <p>الخاتم يهرب ويختفي! احكميه باش نكملو!</p>
+            <div id="ring-game-area" onmousemove="moveRingUltimate()" ontouchmove="moveRingUltimate()">
+                <button id="ring-btn" onclick="winRingGame()">💍</button>
             </div>
         </div>
 
         <div class="glass-card locked-section wedding-section" id="etape21">
-            <div class="lang-fr">
-                <h1 style="font-size: 3.5rem; text-transform: uppercase;">InshAllah 💍👑</h1>
-                <p style="font-size: 1.3rem; font-weight: bold;">Félicitations ma femme, tu as fini ce cauchemar !</p>
-                <p>Tu as prouvé que t'es une vraie guerrière. On fera le plus beau des mariages, Karakou, Caftan, des montagnes de chips poulet et de sushis.</p>
-                <p>Mais avant ça...</p>
-                <button class="btn" style="margin-top: 30px; background: var(--gold); color: black; padding: 20px 40px; font-size: 1.5rem;" onclick="unlockStory()">Lis ça s'il te plaît 📖</button>
-            </div>
-            <div class="lang-ar">
-                <h1 style="font-size: 3.5rem;">إن شاء الله 💍👑</h1>
-                <p style="font-size: 1.3rem; font-weight: bold;">مبروك زوجتي، لقد أنهيتِ هذا الكابوس!</p>
-                <p>أنتِ محاربة. سنقيم أجمل عرس، بالقفطان والكاراكو، وجبال من شيبس الدجاج والسوشي.</p>
-                <p>ولكن قبل ذلك...</p>
-                <button class="btn" style="margin-top: 30px; background: var(--gold); color: black; padding: 20px 40px; font-size: 1.5rem;" onclick="unlockStory()">اقرئي هذا من فضلك 📖</button>
-            </div>
+            <h1 style="font-size: 3.5rem;">إن شاء الله 💍👑</h1>
+            <p style="font-size: 1.3rem; font-weight: bold;">ألف مبروك مرتي، كملتي هاد الكوشمار!</p>
+            <p>بينتي بلي راكي محاربة تاع الصح. نديرو أعظم عرس، كاراكو، قفطان، جبال تاع شيبس دجاج و سوشي.</p>
+            <p>بصح قبل هاد الشي...</p>
+            <button class="btn" style="margin-top: 30px; background: var(--gold); color: black; padding: 20px 40px; font-size: 1.5rem;" onclick="unlockStory()">اقراي هادي تعيشي 📖</button>
         </div>
 
         <div class="story-section locked-section" id="etape-histoire">
-            <div class="lang-fr">
-                <h2 class="story-title">À Cœur Ouvert 🖤</h2>
-                <p>Maintenant que tu as fini toutes ces conneries, il faut que je te parle sah. Mon histoire, tu ne la connais peut-être pas en entier.</p>
-                <p>Je suis né à Limoges. Mais direct après ma naissance, on m'a envoyé en Algérie, vivre chez la famille de mon père. Ça a été le début de l'enfer. C'était une vraie dinguerie comment sa famille nous a fait la misère, à ma mère et à moi. Ils nous pourrissaient la vie, tous les jours, avec de la méchanceté gratuite. Mon seul rempart, c'était ma mère. Je la préférais à tout, c'était ma seule lumière là-bas.</p>
-                <p>À l'âge de 6 ans, je suis revenu définitivement en France. Mais le mal était fait. J'avais un énorme retard scolaire en français. À l'école, c'était terrible. Je me faisais harceler, rabaisser tous les jours. C'était tellement grave, la violence de l'école, qu'on a décidé de me renvoyer en Algérie, en pensant que ça serait pour mon bien.</p>
-                <p>Mais là-bas... c'était pire. J'ai vécu un vrai cauchemar. J'ai vu ce qu'aucun gosse devrait voir. Une attaque à main armée direct sous mes yeux... j'ai vu mes potes tomber, se faire tuer devant moi. J'ai vu la mort, le sang, la vraie galère. Ça m'a détruit.</p>
-                <p>J'ai fini par rentrer en France. Je me suis installé à Lille pour vivre toute ma vie. J'ai essayé de me reconstruire, mais j'avais le cœur bousillé, je pensais que j'allais rester dans le noir pour toujours.</p>
-                <p>Et puis... tu es apparue, Leinah. Mon trompe-l'œil préféré. T'as effacé tout ce malheur. T'es ma récompense après toute cette galère. Je t'aime plus que tout, et InshAllah, tu seras la mère de mes enfants.</p>
-                <div style="text-align:center; margin-top: 40px;">
-                    <button class="btn" style="background: var(--gold); color: black;" onclick="explodeConfettiFinal()">Je t'aime ❤️</button>
-                </div>
-            </div>
-            <div class="lang-ar">
-                <h2 class="story-title">بقلب مفتوح 🖤</h2>
-                <p>الآن وقد انتهيتِ من كل هذا، يجب أن أتحدث إليكِ بصدق. قصتي، ربما لا تعرفينها بالكامل.</p>
-                <p>لقد ولدت في ليموج. ولكن بعد ولادتي مباشرة، تم إرسالي إلى الجزائر للعيش مع عائلة والدي. كانت تلك بداية الجحيم. لقد أذاقونا الويلات، أنا وأمي. كانوا يفسدون حياتنا كل يوم بلؤم لا مبرر له. حصني الوحيد كان أمي. كنت أفضلها على كل شيء، كانت نوري الوحيد هناك.</p>
-                <p>في سن السادسة، عدت نهائياً إلى فرنسا. لكن الضرر كان قد وقع. كان لدي تأخر دراسي كبير في اللغة الفرنسية. في المدرسة، كان الأمر مروعاً. تعرضت للتنمر والإذلال كل يوم. كان الأمر خطيراً جداً لدرجة أنهم قرروا إعادتي إلى الجزائر، ظناً منهم أن ذلك لمصلحتي.</p>
-                <p>لكن هناك... كان الأمر أسوأ. عشت كابوساً حقيقياً. رأيت ما لا ينبغي لأي طفل أن يراه. هجوم مسلح أمامي مباشرة... رأيت أصدقائي يسقطون ويُقتلون أمام عيني. رأيت الموت والدم والمعاناة الحقيقية. لقد دمرني ذلك.</p>
-                <p>في النهاية، عدت إلى فرنسا. استقريت في ليل لأعيش بقية حياتي. حاولت إعادة بناء نفسي، لكن قلبي كان محطماً، اعتقدت أنني سأبقى في الظلام إلى الأبد.</p>
-                <p>ثم... ظهرتِ أنتِ يا لينة. لقد محوتِ كل هذا البؤس. أنتِ مكافأتي بعد كل هذه المعاناة. أحبك أكثر من أي شيء، وإن شاء الله، ستكونين أم أطفالي.</p>
-                <div style="text-align:center; margin-top: 40px;">
-                    <button class="btn" style="background: var(--gold); color: black;" onclick="explodeConfettiFinal()">أحبك ❤️</button>
-                </div>
+            <h2 class="story-title">من القلب للقلب 🖤</h2>
+            <p>دوكا كي كملتي ڨاع هاد اللعب، لازم نهدر معاك صح. حكايتي بلاك ماتعرفيهاش كاملة.</p>
+            <p>زت في Limoges. بصح غير زت، بعتوني للجزائر نعيش عند فاميلة بابا. تماك بدا الجحيم. كانت دنجري كيفاش فاميلتو دارو فينا الباطل، أنا ويما. كانو يمرمدونا كل يوم، الشر باطل. الحماية ديالي الوحيدة كانت يما. كنت نفضلها هي على كلش، كانت النور ديالي الوحيد تماك.</p>
+            <p>فـ 6 سنين، وليت لفرنسا ديفينيتيف. بصح الضربة كانت مقيوسة. كان عندي روطار كبير فالمسيد فاللغة. فالمسيد كانت كارثة. كانو يحڨروني ويطيحولي كل يوم. العنف تاع المسيد لحق لدرجة كبيرة، حتى ديسيداو يعاودو يرجعوني للجزائر، كانو حاسبين فيها صلاحي.</p>
+            <p>بصح تماك... كانت كتر. عشت كوشمار تاع الصح. شفت واش حتى طفل ما لازم يشوف. أطاك بالقرطاس قدام عيني... شفت صحابي يطيحو، يموتو قدامي. شفت الموت، الدم، الميزيرية الكحلة. هاد الشي دمرني.</p>
+            <p>مع اللخر رجعت لفرنسا. استقريت في Lille باش نعيش ڨاع حياتي. سييت نوقف على رجليا، بصح قلبي كان مهشم، كنت حاسب بلي راح نبقى فالظلمة لتوغور.</p>
+            <p>وممبعد... بنتي نتي، Leinah. أحلى Trompe l'œil ديالي. مسحتي ڨاع هاد الغمة. نتي هي الكادو ديالي مورا ڨاع هاد الميزيرية. نحبك كتر من كلش، وإن شاء الله، نتي لي راح تكوني يما دراري دياولي.</p>
+            <div style="text-align:center; margin-top: 40px;">
+                <button class="btn" style="background: var(--gold); color: black;" onclick="explodeConfettiFinal()">نحبك ❤️</button>
             </div>
         </div>
 
@@ -1103,8 +858,6 @@
         <h1 id="sad-text"></h1>
         <img src="https://media.tenor.com/J7r5uN2nEbwAAAAC/neymar-crying.gif" alt="Triste">
     </div>
-
-    <div class="secret-translator" id="translator" onclick="toggleLanguage()" title="Traduction">✨</div>
 
     <script>
         function unlockSection(id) {
@@ -1121,32 +874,26 @@
         /* ETAPE 1: PIEGE                                           */
         /* ======================================================== */
         let clickCount = 0;
-        function handleMainClick(btn, lang) {
+        function handleMainClick(btn) {
             if (btn.dataset.isTrap === "true") {
-                activateSadMode(lang);
+                activateSadMode();
                 return;
             }
             clickCount++;
             if (clickCount === 8) { 
-                document.getElementById('main-btn-fr').innerText = "Je t'aime pas"; 
-                document.getElementById('main-btn-ar').innerText = "أنا لا أحبك";
-                document.getElementById('main-btn-fr').style.background = "#333"; 
-                document.getElementById('main-btn-ar').style.background = "#333";
-                document.getElementById('main-btn-fr').dataset.isTrap = "true"; 
-                document.getElementById('main-btn-ar').dataset.isTrap = "true";
-                document.getElementById('tiny-btn-fr').style.display = 'inline-block'; 
-                document.getElementById('tiny-btn-ar').style.display = 'inline-block';
+                document.getElementById('main-btn').innerText = "مانحبكش"; 
+                document.getElementById('main-btn').style.background = "#333"; 
+                document.getElementById('main-btn').dataset.isTrap = "true"; 
+                document.getElementById('tiny-btn').style.display = 'inline-block'; 
             }
         }
-        function handleTinyClick(lang) {
+        function handleTinyClick() {
             clickCount++;
             if (clickCount >= 10) { 
-                document.getElementById('main-btn-fr').innerText = "Validé ❤️"; 
-                document.getElementById('main-btn-ar').innerText = "تم ❤️";
-                document.getElementById('main-btn-fr').style.background = "var(--gold)"; 
-                document.getElementById('main-btn-fr').dataset.isTrap = "false";
-                document.getElementById('tiny-btn-fr').style.display = 'none'; 
-                document.getElementById('tiny-btn-ar').style.display = 'none';
+                document.getElementById('main-btn').innerText = "مريقل ❤️"; 
+                document.getElementById('main-btn').style.background = "var(--gold)"; 
+                document.getElementById('main-btn').dataset.isTrap = "false";
+                document.getElementById('tiny-btn').style.display = 'none'; 
                 unlockSection('etape2');
             }
         }
@@ -1156,28 +903,24 @@
         /* ======================================================== */
         function checkDoudou(a) { 
             if(a === 'titi') { 
-                document.getElementById('doudou-res-fr').innerText = "Normal c'est lui le sang ❤️"; 
-                document.getElementById('doudou-res-ar').innerText = "برافو ❤️"; 
+                document.getElementById('doudou-res').innerText = "باينة، هو الصح ❤️"; 
                 unlockSection('etape3'); 
             } else { 
-                document.getElementById('doudou-res-fr').innerText = "Faux 😒"; 
+                document.getElementById('doudou-res').innerText = "غالط 😒"; 
             } 
         }
 
         function checkCouple(q, a) {
             if(q === 1 && a === 'toi') { 
                 unlockSection('couple-quiz-2'); 
-                unlockSection('couple-quiz-2-ar'); 
             }
             if(q === 2 && a === 'chips') { 
-                document.getElementById('couple-res-2').innerText = "Bingo ! Chips poulet & Compote 🤤"; 
-                document.getElementById('couple-res-2-ar').innerText = "صحيح! شيبس وكومبوت 🤤"; 
+                document.getElementById('couple-res-2').innerText = "جبتيها! شيبس دجاج و كومبوت 🤤"; 
                 unlockSection('etape4'); 
                 initMemoryGame(); 
             }
             else if(q === 2) { 
-                document.getElementById('couple-res-2').innerText = "Menteuse tu préfères manger 😂"; 
-                document.getElementById('couple-res-2-ar').innerText = "كذابة تحبين الأكل 😂"; 
+                document.getElementById('couple-res-2').innerText = "كذابة تحبي غير الماكلة 😂"; 
             }
         }
 
@@ -1198,11 +941,6 @@
                 card.dataset.emoji = emoji; 
                 card.onclick = () => flipCard(card); 
                 grid.appendChild(card); 
-            });
-            
-            document.getElementById('memory-grid-ar').innerHTML = grid.innerHTML; 
-            document.querySelectorAll('#memory-grid-ar .memory-card').forEach(c => {
-                c.onclick = () => flipCard(c);
             });
         }
 
@@ -1227,7 +965,7 @@
                 firstCard = null;
                 secondCard = null;
                 matches++;
-                if (matches === 4 || matches === 8) {
+                if (matches === 4) {
                     setTimeout(() => {
                         unlockSection('etape5');
                         initTiti();
@@ -1252,15 +990,12 @@
         function initTiti() {
             titiInterval = setInterval(() => {
                 const t1 = document.getElementById('titi-target');
-                const t2 = document.getElementById('titi-target-ar');
                 if(t1) { t1.style.left = Math.random() * 80 + '%'; t1.style.top = Math.random() * 80 + '%'; }
-                if(t2) { t2.style.left = Math.random() * 80 + '%'; t2.style.top = Math.random() * 80 + '%'; }
             }, 800); 
         }
         function catchTiti() {
             titiCount++; 
             document.getElementById('titi-score').innerText = titiCount; 
-            document.getElementById('titi-score-ar').innerText = titiCount;
             if(titiCount >= 4) { 
                 clearInterval(titiInterval); 
                 document.getElementById('titi-target').style.display = 'none'; 
@@ -1271,10 +1006,12 @@
         /* ======================================================== */
         /* ETAPE 6: MOT DE PASSE                                    */
         /* ======================================================== */
-        function checkVault(lang) {
-            const val = document.getElementById(lang === 'fr' ? 'vault-input-fr' : 'vault-input-ar').value.toLowerCase().replace(/\s/g, '');
+        function checkVault() {
+            const val = document.getElementById('vault-input').value.toLowerCase().replace(/\s/g, '');
             if(val === 'capri-sun' || val === 'caprisun' || val === 'كابريسن') { 
                 unlockSection('etape7'); 
+            } else {
+                document.getElementById('vault-res').innerText = "غالط... نسيتي المشروب تاعك؟ 😒";
             }
         }
 
@@ -1286,7 +1023,6 @@
             if(loveProgress >= 100) return; 
             loveProgress += 10;
             document.getElementById('love-bar').style.width = loveProgress + "%"; 
-            document.getElementById('love-bar-ar').style.width = loveProgress + "%";
             setTimeout(() => { 
                 if(loveProgress > 0 && loveProgress < 100) { 
                     loveProgress -= 3; 
@@ -1306,7 +1042,7 @@
         function pressKey(num) {
             if(currentCode.length >= 3) currentCode = ""; 
             currentCode += num;
-            document.getElementById('code-display-fr').innerText = currentCode + "---".substring(currentCode.length);
+            document.getElementById('code-display').innerText = currentCode + "---".substring(currentCode.length);
             if(currentCode === "213") {
                 unlockSection('etape9');
             }
@@ -1316,18 +1052,18 @@
         /* ETAPE 9: CASINO                                          */
         /* ======================================================== */
         let isSpinning = false;
-        function spinSlot(lang) {
+        function spinSlot() {
             if(isSpinning) return;
             isSpinning = true;
-            const slot = document.getElementById(lang === 'fr' ? 'slot-fr' : 'slot-ar');
-            const arr = ["La vaisselle", "Le grec", "Sushis illimités 🍣", "Trompe-l'œil 🍰"]; 
+            const slot = document.getElementById('slot');
+            const arr = ["المواعن", "طاڨوس", "سوشي آ فلونتي 🍣", "ترومب لوي 🍰"]; 
             let counter = 0;
             const spinInt = setInterval(() => {
                 slot.innerText = arr[Math.floor(Math.random() * arr.length)];
                 counter++;
                 if(counter > 15) { 
                     clearInterval(spinInt); 
-                    slot.innerText = lang === 'fr' ? "Sushis payés par ton homme 🍣" : "سوشي غير محدود 🍣"; 
+                    slot.innerText = "سوشي يخلصو راجلك 🍣"; 
                     slot.style.background = "var(--gold)"; 
                     slot.style.color = "black"; 
                     unlockSection('etape10'); 
@@ -1339,35 +1075,35 @@
         /* ETAPE 10: DETECTEUR                                      */
         /* ======================================================== */
         let holdProgress = 0, holdInterval;
-        function startHold(lang) {
+        function startHold() {
             holdProgress = 0;
             holdInterval = setInterval(() => {
                 holdProgress += 5; 
-                document.getElementById('fill-' + lang).style.width = holdProgress + "%";
+                document.getElementById('fill').style.width = holdProgress + "%";
                 if(holdProgress >= 100) { 
                     clearInterval(holdInterval); 
-                    document.getElementById('fill-' + lang).style.background = "var(--gold)"; 
-                    document.getElementById('hold-' + lang).onmousedown = null; 
-                    document.getElementById('hold-' + lang).ontouchstart = null; 
+                    document.getElementById('fill').style.background = "var(--gold)"; 
+                    document.getElementById('hold').onmousedown = null; 
+                    document.getElementById('hold').ontouchstart = null; 
                     unlockSection('etape11'); 
                 }
             }, 150);
         }
-        function endHold(lang) { 
+        function endHold() { 
             clearInterval(holdInterval); 
             if(holdProgress < 100) {
                 holdProgress = 0;
-                document.getElementById('fill-' + lang).style.width = "0%";
+                document.getElementById('fill').style.width = "0%";
             } 
         }
 
         /* ======================================================== */
         /* ETAPE 11: SCANNER                                        */
         /* ======================================================== */
-        function runScanner(lang) {
-            document.getElementById(lang === 'fr' ? 'scan-line-fr' : 'scan-line-ar').style.display = 'block';
+        function runScanner() {
+            document.getElementById('scan-line').style.display = 'block';
             setTimeout(() => { 
-                document.getElementById(lang === 'fr' ? 'scan-line-fr' : 'scan-line-ar').style.display = 'none'; 
+                document.getElementById('scan-line').style.display = 'none'; 
                 unlockSection('etape12'); 
                 initIntruder(); 
             }, 2000);
@@ -1377,29 +1113,27 @@
         /* ETAPE 12: L'INTRUS                                       */
         /* ======================================================== */
         function initIntruder() {
-            const grids = [document.getElementById('intruder-grid-fr'), document.getElementById('intruder-grid-ar')];
-            grids.forEach(grid => {
-                if(grid.innerHTML !== "") return;
-                let arr = Array(23).fill('🍣'); 
-                arr.push('🍰'); 
-                arr = arr.sort(() => 0.5 - Math.random());
-                arr.forEach(e => {
-                    let div = document.createElement('div'); 
-                    div.className = 'intruder-item'; 
-                    div.innerText = e;
-                    div.onclick = () => { 
-                        if(e === '🍰') { 
-                            div.style.transform = "scale(2)"; 
-                            setTimeout(() => {
-                                unlockSection('etape13');
-                                initScratch();
-                            }, 500); 
-                        } else { 
-                            div.style.opacity = '0.2'; 
-                        } 
-                    };
-                    grid.appendChild(div);
-                });
+            const grid = document.getElementById('intruder-grid');
+            if(grid.innerHTML !== "") return;
+            let arr = Array(23).fill('🍣'); 
+            arr.push('🍰'); 
+            arr = arr.sort(() => 0.5 - Math.random());
+            arr.forEach(e => {
+                let div = document.createElement('div'); 
+                div.className = 'intruder-item'; 
+                div.innerText = e;
+                div.onclick = () => { 
+                    if(e === '🍰') { 
+                        div.style.transform = "scale(2)"; 
+                        setTimeout(() => {
+                            unlockSection('etape13');
+                            initScratch();
+                        }, 500); 
+                    } else { 
+                        div.style.opacity = '0.2'; 
+                    } 
+                };
+                grid.appendChild(div);
             });
         }
 
@@ -1408,45 +1142,39 @@
         /* ======================================================== */
         let scratchCount = 0;
         function initScratch() {
-            const grids = [document.getElementById('scratch-grid-fr'), document.getElementById('scratch-grid-ar')];
-            grids.forEach(grid => {
-                if(grid.innerHTML !== "") return;
-                for(let i=0; i<50; i++) {
-                    let block = document.createElement('div'); 
-                    block.className = 'scratch-block';
-                    const clearBlock = () => { 
-                        if(block.style.opacity !== '0') { 
-                            block.style.opacity = '0'; 
-                            scratchCount++; 
-                            if(scratchCount >= 40 || scratchCount >= 90) {
-                                unlockSection('etape14');
-                            } 
+            const grid = document.getElementById('scratch-grid');
+            if(grid.innerHTML !== "") return;
+            for(let i=0; i<50; i++) {
+                let block = document.createElement('div'); 
+                block.className = 'scratch-block';
+                const clearBlock = () => { 
+                    if(block.style.opacity !== '0') { 
+                        block.style.opacity = '0'; 
+                        scratchCount++; 
+                        if(scratchCount >= 40) {
+                            unlockSection('etape14');
                         } 
-                    };
-                    block.onmouseover = clearBlock; 
-                    block.ontouchmove = clearBlock; 
-                    grid.appendChild(block);
-                }
-            });
+                    } 
+                };
+                block.onmouseover = clearBlock; 
+                block.ontouchmove = clearBlock; 
+                grid.appendChild(block);
+            }
         }
 
         /* ======================================================== */
         /* ETAPE 14: LE JUSTE PRIX                                  */
         /* ======================================================== */
-        function fleeMahrBtn(lang) {
-            const btnFr = document.getElementById('mahr-btn-rich-fr'); 
-            const btnAr = document.getElementById('mahr-btn-rich-ar');
+        function fleeMahrBtn() {
+            const btn = document.getElementById('mahr-btn-rich'); 
             const x = Math.random() * 200 - 100; 
             const y = Math.random() * 50 - 25;
             
-            if(btnFr) btnFr.style.transform = `translate(${x}px, ${y}px)`; 
-            if(btnAr) btnAr.style.transform = `translate(${x}px, ${y}px)`;
-            
-            document.getElementById('hidden-mahr-fr').style.display = "inline-block";
-            document.getElementById('hidden-mahr-ar').style.display = "inline-block";
+            if(btn) btn.style.transform = `translate(${x}px, ${y}px)`; 
+            document.getElementById('hidden-mahr').style.display = "inline-block";
         }
-        function winMahr(lang) {
-            alert(lang === 'fr' ? "Exactement. Tu n'as pas de prix lfm de mvi. ❤️" : "بالضبط. ليس لك ثمن. ❤️");
+        function winMahr() {
+            alert("هكداك. ماعندكش سومة يا مراة حياتي. ❤️");
             unlockSection('etape15');
         }
 
@@ -1454,54 +1182,52 @@
         /* ETAPE 15: LA PATIENCE                                    */
         /* ======================================================== */
         let patienceTimer, patienceTime = 5;
-        function startPatience(lang) {
+        function startPatience() {
             clearInterval(patienceTimer);
-            document.getElementById('pz-'+lang).style.background = "rgba(0,255,0,0.2)";
+            document.getElementById('pz').style.background = "rgba(0,255,0,0.2)";
             patienceTimer = setInterval(() => {
                 patienceTime--;
-                document.getElementById('pt-'+lang).innerText = patienceTime;
+                document.getElementById('pt').innerText = patienceTime;
                 if(patienceTime <= 0) {
                     clearInterval(patienceTimer);
-                    document.getElementById('pt-'+lang).innerText = "GAGNÉ !";
+                    document.getElementById('pt').innerText = "ربحتي!";
                     unlockSection('etape16'); 
                     initFindRing();
                 }
             }, 1000);
         }
-        function failPatience(lang) {
+        function failPatience() {
             clearInterval(patienceTimer); 
             patienceTime = 5;
-            document.getElementById('pt-'+lang).innerText = patienceTime;
-            document.getElementById('pz-'+lang).style.background = "rgba(144,12,63,0.1)";
+            document.getElementById('pt').innerText = patienceTime;
+            document.getElementById('pz').style.background = "rgba(144,12,63,0.1)";
         }
 
         /* ======================================================== */
         /* ETAPE 16: OÙ EST LA BAGUE                                */
         /* ======================================================== */
         function initFindRing() {
-            const grids = [document.getElementById('frg-fr'), document.getElementById('frg-ar')];
-            grids.forEach(grid => {
-                if(grid.innerHTML !== "") return;
-                let arr = Array(49).fill('🧃');
-                arr.push('💍');
-                arr = arr.sort(() => 0.5 - Math.random());
-                arr.forEach(e => {
-                    let div = document.createElement('div');
-                    div.className = 'find-item';
-                    div.innerText = e;
-                    div.onclick = () => { 
-                        if(e === '💍') { 
-                            div.style.transform = "scale(2)"; 
-                            setTimeout(() => {
-                                unlockSection('etape17');
-                                initMarathon();
-                            }, 500); 
-                        } else { 
-                            div.style.opacity = '0.1'; 
-                        } 
-                    };
-                    grid.appendChild(div);
-                });
+            const grid = document.getElementById('frg');
+            if(grid.innerHTML !== "") return;
+            let arr = Array(49).fill('🧃');
+            arr.push('💍');
+            arr = arr.sort(() => 0.5 - Math.random());
+            arr.forEach(e => {
+                let div = document.createElement('div');
+                div.className = 'find-item';
+                div.innerText = e;
+                div.onclick = () => { 
+                    if(e === '💍') { 
+                        div.style.transform = "scale(2)"; 
+                        setTimeout(() => {
+                            unlockSection('etape17');
+                            initMarathon();
+                        }, 500); 
+                    } else { 
+                        div.style.opacity = '0.1'; 
+                    } 
+                };
+                grid.appendChild(div);
             });
         }
 
@@ -1509,16 +1235,16 @@
         /* ETAPE 17: L'INTERROGATOIRE GEANT (MARATHON)              */
         /* ======================================================== */
         const marathonQ = [
-            { qFr: "Qui est le plus beau ?", qAr: "من الأجمل؟", ansFr: ["Moi", "Moi"], ansAr: ["أنا", "أنا"], correct: 0 },
-            { qFr: "Ta boisson ?", qAr: "مشروبك؟", ansFr: ["Eau", "Capri-Sun"], ansAr: ["ماء", "كابري سن"], correct: 1 },
-            { qFr: "Le meilleur doudou ?", qAr: "أفضل دودو؟", ansFr: ["Imrane", "Titi"], ansAr: ["عمران", "تيتي"], correct: 1 },
-            { qFr: "Qui boude vite ?", qAr: "من يغضب بسرعة؟", ansFr: ["Leinah", "Moi"], ansAr: ["لينة", "أنا"], correct: 0 },
-            { qFr: "Ton animal spirituel ?", qAr: "حيوانك الروحي؟", ansFr: ["Gazelle", "Panda affamé"], ansAr: ["غزال", "باندا جائع"], correct: 1 },
-            { qFr: "Les chips préférées ?", qAr: "الشيبس المفضل؟", ansFr: ["Fromage", "Poulet"], ansAr: ["جبن", "دجاج"], correct: 1 },
-            { qFr: "Le repas du vendredi ?", qAr: "وجبة الجمعة؟", ansFr: ["Tacos", "Couscous"], ansAr: ["تاكوس", "كسكس"], correct: 1 },
-            { qFr: "Le meilleur dessert ?", qAr: "أفضل حلوى؟", ansFr: ["Fruit", "Trompe l'oeil"], ansAr: ["فاكهة", "خداع بصري"], correct: 1 },
-            { qFr: "Qui a toujours tort ?", qAr: "من يخطئ دائما؟", ansFr: ["L'homme", "La femme"], ansAr: ["الرجل", "المرأة"], correct: 0 },
-            { qFr: "Tu m'aimes ?", qAr: "هل تحبينني؟", ansFr: ["Un peu", "À la folie"], ansAr: ["قليلا", "بجنون"], correct: 1 }
+            { q: "شكون لي شباب كثر؟", ans: ["أنا", "أنا"], correct: 0 },
+            { q: "مشروبك؟", ans: ["ما", "Capri-Sun"], correct: 1 },
+            { q: "أعز دودو؟", ans: ["Imrane", "Titi"], correct: 1 },
+            { q: "شكون يزعف بالخف؟", ans: ["Leinah", "أنا"], correct: 0 },
+            { q: "الحيوان لي يشبهلك؟", ans: ["غزالة", "باندا جيعان"], correct: 1 },
+            { q: "شيبس لي تموتي عليه؟", ans: ["فرماج", "دجاج"], correct: 1 },
+            { q: "فطور تاع الجمعة؟", ans: ["طاڨوس", "طعام"], correct: 1 },
+            { q: "أحسن ديسير؟", ans: ["ديسير", "Trompe l'oeil"], correct: 1 },
+            { q: "شكون لي دايما غالط؟", ans: ["الراجل", "المرا"], correct: 0 },
+            { q: "تحبيني؟", ans: ["شوية", "نهبل عليك"], correct: 1 }
         ];
         let currentQ = 0;
         function initMarathon() {
@@ -1526,29 +1252,24 @@
         }
         function loadMarathonQ() {
             if(currentQ >= marathonQ.length) { 
-                document.getElementById('marathon-q-fr').innerText = "FÉLICITATIONS !"; 
-                document.getElementById('marathon-btns-fr').innerHTML = ""; 
+                document.getElementById('marathon-q').innerText = "ألف مبروك!"; 
+                document.getElementById('marathon-btns').innerHTML = ""; 
                 unlockSection('etape18'); 
                 return; 
             }
             
             let q = marathonQ[currentQ];
-            document.getElementById('q-num-fr').innerText = currentQ + 1;
-            document.getElementById('marathon-q-fr').innerText = q.qFr;
-            let btnsFr = `<button class="btn" onclick="checkMarathon(0)">${q.ansFr[0]}</button><button class="btn" onclick="checkMarathon(1)">${q.ansFr[1]}</button>`;
-            document.getElementById('marathon-btns-fr').innerHTML = btnsFr;
-
-            document.getElementById('q-num-ar').innerText = currentQ + 1;
-            document.getElementById('marathon-q-ar').innerText = q.qAr;
-            let btnsAr = `<button class="btn" onclick="checkMarathon(0)">${q.ansAr[0]}</button><button class="btn" onclick="checkMarathon(1)">${q.ansAr[1]}</button>`;
-            document.getElementById('marathon-btns-ar').innerHTML = btnsAr;
+            document.getElementById('q-num').innerText = currentQ + 1;
+            document.getElementById('marathon-q').innerText = q.q;
+            let btns = `<button class="btn" onclick="checkMarathon(0)">${q.ans[0]}</button><button class="btn" onclick="checkMarathon(1)">${q.ans[1]}</button>`;
+            document.getElementById('marathon-btns').innerHTML = btns;
         }
         function checkMarathon(ans) {
             if(ans === marathonQ[currentQ].correct) {
                 currentQ++;
                 loadMarathonQ();
             } else {
-                alert("FAUX ! Tu recommences tout depuis la question 1 ! 😈");
+                alert("غالط! تعاودي ڨاع من السؤال الأول! 😈");
                 currentQ = 0;
                 loadMarathonQ();
             }
@@ -1563,8 +1284,7 @@
             if(currentPin.length >= 4) currentPin = ""; 
             currentPin += num;
             
-            document.getElementById('pin-display-fr').innerText = currentPin + "----".substring(currentPin.length);
-            document.getElementById('pin-display-ar').innerText = currentPin + "----".substring(currentPin.length);
+            document.getElementById('pin-display').innerText = currentPin + "----".substring(currentPin.length);
             
             if(currentPin.length === 4) {
                 if(currentPin === codeSecret) { 
@@ -1572,8 +1292,7 @@
                 } else { 
                     setTimeout(() => { 
                         currentPin = ""; 
-                        document.getElementById('pin-display-fr').innerText = "----"; 
-                        document.getElementById('pin-display-ar').innerText = "----"; 
+                        document.getElementById('pin-display').innerText = "----"; 
                     }, 500); 
                 }
             }
@@ -1591,13 +1310,13 @@
             }
         }
         function winRingGame() {
-            document.getElementById('ring-btn').innerText = "💖 ATTRAPÉE 💖";
+            document.getElementById('ring-btn').innerText = "💖 حكمتك 💖";
             document.getElementById('ring-btn').style.transform = "scale(1.5)";
             document.getElementById('ring-btn').style.opacity = "1";
             document.getElementById('ring-game-area').onmousemove = null; 
             document.getElementById('ring-game-area').ontouchmove = null;
             setTimeout(() => {
-                unlockSection('etape20');
+                unlockSection('etape21');
             }, 1000);
         }
 
@@ -1650,21 +1369,11 @@
         /* ======================================================== */
         /* SAD MODE                                                 */
         /* ======================================================== */
-        function activateSadMode(lang) {
+        function activateSadMode() {
             document.getElementById('main-container').style.display = 'none'; 
-            document.getElementById('translator').style.display = 'none'; 
             document.body.style.background = '#000'; 
             document.getElementById('sad-mode').style.display = 'flex';
-            document.getElementById('sad-text').innerText = lang === 'fr' ? "Je savais tu m'aimais pas c triste Leinah sah..." : "كنت علابالي بلي ماتحبينيش، صدمتيني يا لينة صح...";
-        }
-
-        /* ======================================================== */
-        /* TRADUCTION                                               */
-        /* ======================================================== */
-        let isArabic = false;
-        function toggleLanguage() { 
-            isArabic = !isArabic; 
-            document.getElementById('body').setAttribute('dir', isArabic ? 'rtl' : 'ltr'); 
+            document.getElementById('sad-text').innerText = "كنت علابالي بلي ماتحبينيش، صدمتيني يا Leinah صح...";
         }
     </script>
 </body>
